@@ -6,213 +6,876 @@
 <title>Victor Hugo Sanches — Portfólio</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
-  --accent:#00cccc;
-  --muted:#bfcfcf;
+@media (min-width: 1200px) {
+  body {
+    transform: scale(1.1);
+    transform-origin: top center;
+    overflow-x: hidden;
+    width: 100vw;
+  }
+}
+
+ :root{
+   --accent:#009999;
+   --muted:#888;
+   --bg:#f7fafc;
+   --text:#222;
+   --border:#dbe3ea;
+ }
+ *{margin:0;padding:0;box-sizing:border-box;}
+ html,body{
+   font-family:'Montserrat',sans-serif;
+   background:var(--bg);
+   color:var(--text);
+   line-height:1.7;
+   text-align:left;
+   overflow:auto;
+ }
+ body{scroll-behavior:smooth;}
+
+  .cv-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 2200px;
+    min-height: 70vh;
+    margin: 4vh auto 0 auto;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 6px 32px #0002, 0 1.5px 0 #00999911;
+    border: none;
+    overflow: hidden;
+    align-items: center;
+  }
+ .cv-sidebar {
+   background: rgba(234,243,247,0.97);
+   min-width: 240px;
+   max-width: 260px;
+   padding: 38px 22px 38px 22px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   box-shadow: 2px 0 18px #00999911;
+   border-right: none;
+   border-radius: 18px 0 0 18px;
+   height: 100%;
+ }
+ .cv-main {
+   flex: 1;
+   padding: 38px 38px 38px 38px;
+   display: flex;
+   flex-direction: column;
+   gap: 32px;
+   background: linear-gradient(120deg, #f7fafc 80%, #eaf3f7 100%);
+   border-radius: 0 18px 18px 0;
+   min-height: 60vh;
+   box-shadow: none;
+ }
+ #profile-pic{
+   width:90px;height:90px;
+   border-radius:50%;
+   object-fit:cover;
+   border:3px solid var(--accent);
+   margin-bottom:18px;
+   box-shadow:0 2px 8px #00999922;
+ }
+ .cv-name {
+   font-size:1.35rem;
+   font-weight:700;
+   color:var(--accent);
+   margin-bottom:2px;
+   letter-spacing:0.01em;
+ }
+ .cv-role {
+   font-size:1rem;
+   color:var(--muted);
+   margin-bottom:18px;
+ }
+ .cv-contact {
+   margin-top:18px;
+   font-size:0.97rem;
+   color:var(--text);
+ }
+ .cv-contact a {
+   color: #0077b6;
+   text-decoration: underline;
+   margin: 0 2px;
+   font-size: 1.01rem;
+   font-weight: 600;
+   transition: color 0.2s, background 0.2s;
+ }
+ .cv-contact a:hover {
+   color: #fff;
+   background: var(--accent);
+   text-decoration: none;
+   border-radius: 3px;
+   padding: 0 2px;
+ }
+ .cv-nav {
+  width: 260px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+ }
+ .cv-nav a {
+   color: var(--accent);
+   text-decoration: none;
+   font-weight: 600;
+   font-size: 1rem;
+   padding: 7px 0;
+   border-radius: 6px;
+   width: 100%;
+   text-align: center;
+   transition: background 0.2s, color 0.2s;
+   margin-bottom: 2px;
+   letter-spacing: 0.01em;
+   cursor: pointer;
+ }
+ .cv-nav a:hover, .cv-nav a.active {
+   background: var(--accent);
+   color: #fff;
+   box-shadow: 0 2px 8px #00999922;
+ }
+.cv-section {
+  margin-bottom: 0;
+  padding: 22px 18px 22px 18px;
+  border-bottom: 1px solid var(--border);
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px #00999911;
+  width: 100%;
+  max-width: 480px;
+  min-height: 180px;
+  transition: background 0.3s, color 0.3s;
+}
+ .cv-section:last-child {
+   border-bottom:none;
+ }
+ .cv-section-title {
+   color:var(--accent);
+   font-size:1.08rem;
+   font-weight:700;
+   margin-bottom:8px;
+   letter-spacing:0.01em;
+ }
+ .cv-section .cv-section-content {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   text-align: center;
+ }
+.cv-section-content p, .cv-section-content ul {
+  margin: 0 0 8px 0;
+  font-size: 1.05rem;
+  color: inherit;
+}
+ .cv-section-content ul {
+   padding-left:18px;
+   margin-bottom:0;
+ }
+ .cv-section-content li {
+   margin-bottom:4px;
+ }
+ .rpg-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 10px;
+  max-width: 320px;
+  margin: 8px auto 0 auto;
+ }
+ .skill-card {
+  background: #f7fafc;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 7px 6px 6px 6px;
+  box-shadow: 0 1px 4px #00999911;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+ }
+ .skill-card:hover {
+   box-shadow: 0 4px 16px #00999922;
+   transform: translateY(-2px) scale(1.03);
+ }
+ .skill-name {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 3px;
+  font-size: 0.92rem;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+ }
+ .skill-bar {
+  width: 100%;
+  height: 6px;
+  background: #eaf3f7;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 2px;
+  margin-bottom: 1px;
+ }
+ .skill-fill {
+   height: 100%;
+   background: linear-gradient(90deg, var(--accent) 60%, #00e6e6 100%);
+   border-radius: 5px;
+   transition: width 0.4s cubic-bezier(.4,1.4,.6,1);
+ }
+ .badge{
+   background:rgba(0,153,153,0.08);
+   color:var(--accent);
+   padding:0 4px;
+   border-radius:3px;
+   font-size:0.70rem;
+   font-weight:600;
+   border:none;
+ }
+ ul{
+   list-style:none;
+   padding:0;
+   margin-top:2px;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   gap:2px;
+ }
+ ul li{
+   background:none;
+   padding:2px 0;
+   border-radius:0;
+   font-size:0.90rem;
+   display:flex;
+   align-items:center;
+   justify-content:center;
+   gap:4px;
+   transition:none;
+   box-shadow:none;
+   border:none;
+ }
+ ul li:hover{
+   background:rgba(0,153,153,0.07);
+   color:var(--accent);
+ }
+ a.button-link{
+   display:inline-block;
+   padding:0 5px;
+   background:none;
+   color:var(--accent);
+   border-radius:3px;
+   font-weight:600;
+   text-decoration:underline;
+   font-size:0.90rem;
+   transition:color 0.2s;
+   border:none;
+ }
+ a.button-link:hover{
+   color:#fff;
+   background:var(--accent);
+   text-decoration:none;
+ }
+ @media (max-width: 1000px) {
+   .cv-container {
+     max-width: 99vw;
+   }
+   .cv-main {
+     padding: 24px 4vw 24px 4vw;
+   }
+ }
+ @media (max-width: 800px) {
+   .cv-container {
+     flex-direction: column;
+     max-width: 99vw;
+     min-width: 0;
+     border-radius: 0;
+     box-shadow: none;
+     align-items: flex-start;
+   }
+   .cv-sidebar {
+     max-width: 100vw;
+     min-width: 0;
+     width: 100%;
+     border-right: none;
+     border-bottom: 1px solid var(--border);
+     padding: 20px 0 10px 0;
+     border-radius: 0;
+     box-shadow: none;
+   }
+   .cv-main {
+     padding: 18px 4vw 18px 4vw;
+     gap: 24px;
+     border-radius: 0 0 18px 18px;
+   }
+ }
+ @media (max-width: 700px) {
+   .rpg-skills {
+     grid-template-columns: 1fr;
+     max-width: 98vw;
+   }
+ }
+ @media (max-width: 500px) {
+   .cv-main {
+     padding: 10px 2vw 10px 2vw;
+     gap: 16px;
+   }
+   .cv-sidebar {
+     padding: 12px 0 6px 0;
+   }
+   #profile-pic {
+     width: 64px;
+     height: 64px;
+   }
+   .cv-name {
+     font-size: 1.05rem;
+   }
+   .cv-role {
+     font-size: 0.92rem;
+   }
+   .cv-section-title {
+     font-size: 0.98rem;
+   }
+   .cv-section-content p, .cv-section-content ul {
+     font-size: 0.90rem;
+   }
+ }
+ footer{
+   width:100vw;
+   padding:12px 0 8px 0;
+   font-size:0.90rem;
+   color:var(--muted);
+   background:var(--bg);
+   border-top:1px solid #eee;
+   margin-top:10px;
+   text-align:center;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:center;
+   gap: 2px;
+ }
+ footer a{color:var(--accent);text-decoration:underline;margin:0 2px;}
+ footer a:hover{text-decoration:none;color:#fff;background:var(--accent);}
+.cv-section .cv-section-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.cv-nav a {
+  cursor: pointer;
+}
+.cv-nav {
+  width: 100%;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.cv-nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 4px 0;
+  border-radius: 4px;
+  width: 100%;
+  text-align: center;
+  transition: background 0.2s, color 0.2s;
+}
+.cv-nav a:hover, .cv-nav a.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+
+ :root{
+  --accent:#009999;
+  --muted:#888;
+  --bg:#f7fafc;
+  --text:#222;
+  --border:#dbe3ea;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-html,body{font-family:'Montserrat',sans-serif;background:#071416;color:#eaf7f7;line-height:1.6;text-align:center;}
+html,body{
+  font-family:'Montserrat',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.7;
+  text-align:left;
+  overflow:auto;
+}
 body{scroll-behavior:smooth;}
 
-/* ===== SECTIONS ===== */
-section{
-  padding:60px 20px;
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
+/* ===== LAYOUT CANVA ===== */
+.cv-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 820px;
+  margin: 32px auto 0 auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px #0001;
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.cv-sidebar {
+  background: #eaf3f7;
+  min-width: 220px;
+  max-width: 240px;
+  padding: 32px 18px 32px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid var(--border);
+}
+.cv-main {
+  flex: 1;
+  padding: 32px 32px 32px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
 }
 #profile-pic{
-  width:200px;height:200px;
+  width:140px;height:140px;
   border-radius:50%;
   object-fit:cover;
-  border:4px solid var(--accent);
-  margin-bottom:20px;
-  box-shadow:0 6px 20px rgba(0,204,204,0.4);
-  opacity:0;
-  transform:translateY(30px);
-  transition:0.6s;
+  border:3px solid var(--accent);
+  margin-bottom:18px;
+  box-shadow:0 2px 8px #00999922;
 }
-h2{color:var(--accent);font-size:2rem;margin-bottom:15px;opacity:0;transform:translateY(30px);transition:all 0.6s ease-out;}
-p{max-width:700px;font-size:1.1rem;margin:0 auto 10px auto;opacity:0;transform:translateY(30px);transition:all 0.6s ease-out;}
-
-/* ===== LISTAS ===== */
-ul{
-  list-style:none;
-  padding:0;
-  margin-top:10px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  gap:10px;
-}
-ul li{
-  background:rgba(0,0,0,0.15);
-  padding:14px 18px;
-  border-radius:16px;
-  font-size:1rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  transition:all 0.3s ease;
-  box-shadow:0 2px 6px rgba(0,204,204,0.3);
-  border:1px solid rgba(0,204,204,0.1);
-}
-ul li:hover{
-  transform:translateY(-4px) scale(1.02);
-  background:rgba(0,204,204,0.1);
-  box-shadow:0 6px 20px rgba(0,204,204,0.5);
-}
-.badge{
-  background:var(--accent);
-  color:#071313;
-  padding:2px 8px;
-  border-radius:8px;
-  font-size:0.8rem;
-  font-weight:600;
-}
-
-/* ===== BUTTON LINKS ===== */
-a.button-link{
-  display:inline-block;
-  padding:8px 16px;
-  background:rgba(0,204,204,0.15);
+.cv-name {
+  font-size:1.35rem;
+  font-weight:700;
   color:var(--accent);
-  border-radius:10px;
-  font-weight:600;
-  text-decoration:none;
-  transition:all 0.3s;
+  margin-bottom:2px;
+  letter-spacing:0.01em;
 }
-a.button-link:hover{
+.cv-role {
+  font-size:1rem;
+  color:var(--muted);
+  margin-bottom:18px;
+}
+.cv-contact {
+  margin-top:18px;
+  font-size:0.97rem;
+  color:var(--text);
+}
+.cv-contact a {
+  color:var(--accent);
+  text-decoration:underline;
+  margin:0 2px;
+  font-size:0.97rem;
+}
+.cv-contact a:hover {
+  color:#fff;
   background:var(--accent);
-  color:#071313;
-  box-shadow:0 4px 10px rgba(0,204,204,0.4);
+  text-decoration:none;
+  border-radius:3px;
+  padding:0 2px;
 }
-
-/* ===== RPG SKILLS 2 COL ===== */
+.cv-section {
+  margin-bottom:0;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--border);
+}
+.cv-section:last-child {
+  border-bottom:none;
+}
+.cv-section-title {
+  color:var(--accent);
+  font-size:1.08rem;
+  font-weight:700;
+  margin-bottom:8px;
+  letter-spacing:0.01em;
+}
+.cv-section-content p, .cv-section-content ul {
+  margin:0 0 8px 0;
+  font-size:0.97rem;
+}
+.cv-section-content ul {
+  padding-left:18px;
+  margin-bottom:0;
+}
+.cv-section-content li {
+  margin-bottom:4px;
+}
 .rpg-skills {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  max-width: 700px;
-  margin: 20px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 220px;
+  margin: 0 0 0 0;
 }
 .skill-card {
-  background: rgba(0,204,204,0.1);
-  border: 1px solid var(--accent);
-  border-radius: 12px;
-  padding: 12px 16px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.skill-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 8px 20px rgba(0,204,204,0.6);
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0 0 4px 0;
+  transition: none;
+  box-shadow: none;
 }
 .skill-name {
   font-weight: 600;
   color: var(--accent);
-  margin-bottom: 6px;
+  margin-bottom: 1px;
+  font-size:0.92rem;
 }
 .skill-bar {
   width: 100%;
-  height: 12px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 6px;
+  height: 6px;
+  background: rgba(0,153,153,0.10);
+  border-radius: 2px;
   overflow: hidden;
 }
 .skill-fill {
   height: 100%;
   background: var(--accent);
-  border-radius: 6px;
-  transition: width 0.6s ease;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+.badge{
+  background:rgba(0,153,153,0.08);
+  color:var(--accent);
+  padding:0 4px;
+  border-radius:3px;
+  font-size:0.70rem;
+  font-weight:600;
+  border:none;
+}
+@media (max-width: 1000px) {
+  .cv-container {
+    max-width: 99vw;
+  }
+  .cv-main {
+    padding: 24px 4vw 24px 4vw;
+  }
+}
+@media (max-width: 800px) {
+  .cv-container {
+    flex-direction: column;
+    max-width: 99vw;
+    min-width: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .cv-sidebar {
+    max-width: 100vw;
+    min-width: 0;
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0 10px 0;
+    border-radius: 0;
+  }
+  .cv-main {
+    padding: 18px 4vw 18px 4vw;
+    gap: 24px;
+  }
+}
+@media (max-width: 500px) {
+  .cv-main {
+    padding: 10px 2vw 10px 2vw;
+    gap: 16px;
+  }
+  .cv-sidebar {
+    padding: 12px 0 6px 0;
+  }
+  #profile-pic {
+    width: 64px;
+    height: 64px;
+  }
+  .cv-name {
+    font-size: 1.05rem;
+  }
+  .cv-role {
+    font-size: 0.92rem;
+  }
+  .cv-section-title {
+    font-size: 0.98rem;
+  }
+  .cv-section-content p, .cv-section-content ul {
+    font-size: 0.90rem;
+  }
 }
 
-/* ===== FOOTER ===== */
+
+
+ ul{
+  list-style:none;
+  padding:0;
+  margin-top:2px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:2px;
+}
+ ul li{
+  background:none;
+  padding:2px 0;
+  border-radius:0;
+  font-size:0.90rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+  transition:none;
+  box-shadow:none;
+  border:none;
+}
+ ul li:hover{
+  background:rgba(0,153,153,0.07);
+  color:var(--accent);
+}
+.badge{
+  background:rgba(0,153,153,0.08);
+  color:var(--accent);
+  padding:0 4px;
+  border-radius:3px;
+  font-size:0.70rem;
+  font-weight:600;
+  border:none;
+}
+
+
+
+a.button-link{
+  display:inline-block;
+  padding:0 5px;
+  background:none;
+  color:var(--accent);
+  border-radius:3px;
+  font-weight:600;
+  text-decoration:underline;
+  font-size:0.90rem;
+  transition:color 0.2s;
+  border:none;
+}
+a.button-link:hover{
+  color:#fff;
+  background:var(--accent);
+  text-decoration:none;
+}
+
+
+
+.rpg-skills {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px 18px;
+  max-width: 420px;
+  margin: 12px auto 0 auto;
+}
+.skill-card {
+  background: #f7fafc;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 10px 10px 10px;
+  box-shadow: 0 2px 8px #00999911;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.skill-card:hover {
+  box-shadow: 0 4px 16px #00999922;
+  transform: translateY(-2px) scale(1.03);
+}
+.skill-name {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.skill-bar {
+  width: 100%;
+  height: 10px;
+  background: #eaf3f7;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 4px;
+  margin-bottom: 2px;
+}
+.skill-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent) 60%, #00e6e6 100%);
+  border-radius: 5px;
+  transition: width 0.4s cubic-bezier(.4,1.4,.6,1);
+}
+@media (max-width: 700px) {
+  .rpg-skills {
+    grid-template-columns: 1fr;
+    max-width: 98vw;
+  }
+}
+
+
+
 footer{
-  padding:20px;
-  font-size:0.95rem;
+  width:100vw;
+  padding:10px 0 8px 0;
+  font-size:0.85rem;
   color:var(--muted);
-  border-top:1px solid rgba(255,255,255,0.1);
-  margin-top:40px;
+  background:var(--bg);
+  border-top:1px solid #eee;
+  margin-top:10px;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
 }
-footer a{color:var(--accent);text-decoration:none;margin:0 6px;}
-footer a:hover{text-decoration:underline;}
+footer a{color:var(--accent);text-decoration:underline;margin:0 2px;}
+footer a:hover{text-decoration:none;color:#fff;background:var(--accent);}
 
-/* ===== RESPONSIVO ===== */
+
+
 @media(max-width:600px){
-  #profile-pic{width:150px;height:150px;}
-  h2{font-size:1.5rem;}
-  p, ul li{font-size:1rem;}
-  .rpg-skills{grid-template-columns:1fr;}
+  .main-container{padding:0 0;}
+  section{max-width:99vw;}
 }
-section:nth-child(odd){background:#081b1f;}
-section:nth-child(even){background:#0b2a30;}
 </style>
 </head>
 <body>
 
-<!-- SOBRE -->
-<section id="sobre">
-  <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo">
-  <h2>Bem-vindo ao meu portfólio!</h2>
-  <p>Meu nome é Victor Hugo Sanches, natural de Santos, cidade onde nasci e atualmente resido, estou cursando Ciência de Dados na Universidade Santa Cecília, com previsão para o término no final de 2026.</p>
-  <p>Sou apaixonado por tecnologia, dados, programação e criar soluções inteligentes que impactam diretamente a vida das pessoas.</p>
-</section>
+<div class="cv-container">
+  <aside class="cv-sidebar">
+        <!-- Botão de tradução removido -->
+    <script>
 
-<!-- PROJETOS -->
-<section id="projetos">
-  <h2>Projetos</h2>
-  <ul>
-    <li>💻 Automação de orçamentos para WhatsApp <span class="badge">HTML + CSS + JavaScript</span> <a href="https://sawxor19.github.io/projeto-mosquiteira/" target="_blank" class="button-link">Ver Projeto</a></li>
-    <li>🌱 Reforma Agrária Interativa <span class="badge">Web App</span> <a href="https://reformaagraria.eco.br" target="_blank" class="button-link">Ver Projeto</a></li>
-  </ul>
-</section>
+    // Botão de tradução removido
+    </script>
+    <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo">
+    <div class="cv-name" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Victor Hugo Sanches</div>
+    <div class="cv-role">Estudante de Ciência de Dados</div>
+    <nav class="cv-nav">
+      <a href="#sobre" data-section="sobre">Sobre mim</a>
+      <a href="#projetos" data-section="projetos">Projetos</a>
+      <a href="#skills" data-section="skills">Skills</a>
+      <a href="#contato" data-section="contato">Contato</a>
+    </nav>
+    <!-- Contatos removidos da sidebar -->
+  </aside>
+  <main class="cv-main">
+    <section class="cv-section" id="sobre" style="display:block;">
+      <div class="cv-section-title">Sobre</div>
+      <div class="cv-section-content">
+        <p>Natural de Santos/SP, atualmente cursando Ciência de Dados na Universidade Santa Cecília (previsão de término: 2026). Apaixonado por tecnologia, dados, programação e soluções inteligentes que impactam a vida das pessoas.</p>
+      </div>
+    </section>
+    <section class="cv-section" id="projetos" style="display:block;">
+      <div class="cv-section-title">Projetos</div>
+      <div class="cv-section-content">
+        <ul style="width:100%;max-width:400px;">
+          <li style="margin-bottom:18px;">
+            <div style="font-weight:600;">💻 Automação de orçamentos para WhatsApp</div>
+            <div style="margin:4px 0 6px 0;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+            </div>
+            <a href="https://github.com/Mosquiteira/orcamento" target="_blank">Ver Projeto</a>
+          </li>
+          <li>
+            <div style="font-weight:600;">🌱 Reforma Agrária Interativa</div>
+            <div style="margin:4px 0 6px 0;display:flex;gap:6px;justify-content:center;flex-wrap:wrap;">
+              <span class="badge">HTML</span>
+              <span class="badge">CSS</span>
+              <span class="badge">JavaScript</span>
+              <span class="badge">CSV</span>
+              <span class="badge">Web App</span>
+            </div>
+            <a href="https://reformaagraria.eco.br" target="_blank">Ver Projeto</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section class="cv-section" id="skills" style="display:block;">
+      <div class="cv-section-title">Skills</div>
+      <div class="cv-section-content">
+        <div class="rpg-skills">
+          <div class="skill-card"><div class="skill-name">🐍 Python</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">📊 Estatística</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">💬 Comunicação</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">🌐 HTML</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">🎨 CSS</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">☕ Java</div><div class="skill-bar"><div class="skill-fill" style="width:25%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">🤖 IA</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">🗣️ Inglês</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">📥 Coleta de dados</div><div class="skill-bar"><div class="skill-fill" style="width:65%;"></div></div></div>
+          <div class="skill-card"><div class="skill-name">🛠️ Manipulação de dados</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
+        </div>
+      </div>
+    </section>
+    <section class="cv-section" id="contato" style="display:block;">
+      <div class="cv-section-title">Contato</div>
+      <div class="cv-section-content" style="align-items:center;">
+        <nav class="cv-nav" style="margin-bottom:0;gap:10px;width:100%;max-width:320px;">
+          <a href="mailto:sawxor@icloud.com" style="display:flex;align-items:center;gap:8px;justify-content:center;">
+            <span>📧</span> sawxor@icloud.com
+          </a>
+          <a href="tel:+5513996667776" style="display:flex;align-items:center;gap:8px;justify-content:center;">
+            <span>📞</span> (13) 99666-7776
+          </a>
+          <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" style="display:flex;align-items:center;gap:8px;justify-content:center;">
+            <span>🔗</span> LinkedIn
+          </a>
+          <a href="https://github.com/Sawxor19" target="_blank" style="display:flex;align-items:center;gap:8px;justify-content:center;">
+            <span>💻</span> GitHub
+          </a>
+        </nav>
+      </div>
+    </section>
+  </main>
+</div>
 
-
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="rpg-skills">
-    <div class="skill-card"><div class="skill-name">🐍 Python</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">📊 Estatística</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">💬 Comunicação</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">🌐 HTML</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">🎨 CSS</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">☕ Java</div><div class="skill-bar"><div class="skill-fill" style="width:25%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">🤖 Inteligência Artificial</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-    <div class="skill-card"><div class="skill-name">🗣️ Inglês</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
-  </div>
-</section>
-
-<!-- CONTATO -->
-<section id="contato">
-  <h2>Contato</h2>
-  <ul>
-    <li>📧 <a href="mailto:sawxor@icloud.com" class="button-link">Enviar Email</a></li>
-    <li>📞 <a href="tel:+5513996667776" class="button-link">(13) 99666-7776</a></li>
-    <li>🔗 
-      <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" class="button-link">LinkedIn</a>
-      <a href="https://github.com/Sawxor19" target="_blank" class="button-link">GitHub</a>
-    </li>
-  </ul>
-</section>
-
-<footer>© 2025 Victor Hugo Sanches | <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank">LinkedIn</a> | <a href="https://github.com/Sawxor19" target="_blank">GitHub</a></footer>
+<footer>© 2025 Victor Hugo Sanches</footer>
 
 <script>
-// Fade e animação ao scroll
-const sections = document.querySelectorAll('section');
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    const elements = entry.target.querySelectorAll('h2, p, ul, li, .skill-card, a.button-link, #profile-pic');
-    if(entry.isIntersecting){
-      elements.forEach(el=>{el.style.opacity=1;el.style.transform='translateY(0)';});
+// Função show/hide para as sections
+const navLinks = document.querySelectorAll('.cv-nav a[data-section]');
+const sections = {
+  sobre: document.getElementById('sobre'),
+  projetos: document.getElementById('projetos'),
+  skills: document.getElementById('skills'),
+  contato: document.getElementById('contato')
+};
+
+function showSection(sectionId) {
+  for (const key in sections) {
+    if (sections[key]) {
+      sections[key].style.display = (key === sectionId) ? 'block' : 'none';
+    }
+  }
+  navLinks.forEach(link => {
+    if (link.dataset.section === sectionId) {
+      link.classList.add('active');
+    } else {
+      link.classList.remove('active');
     }
   });
-},{threshold:0.2});
-sections.forEach(section=>observer.observe(section));
+}
+
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    showSection(this.dataset.section);
+  });
+});
+
+// Exibe a primeira section por padrão
+showSection('sobre');
+</script>
+
+<script>
+
+// Remove animação de fade/scroll pois tudo está visível
 </script>
 
 </body>
