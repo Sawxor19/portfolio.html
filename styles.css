@@ -1,16 +1,16 @@
 ﻿:root {
-  --bg: #0b1220;
-  --bg-2: #0f1e2e;
-  --surface: rgba(15, 23, 42, 0.8);
-  --card: rgba(15, 23, 42, 0.9);
-  --glass: rgba(15, 23, 42, 0.65);
-  --text: #e2e8f0;
-  --muted: #94a3b8;
-  --accent: #22c55e;
-  --accent-2: #14b8a6;
-  --highlight: #38bdf8;
-  --border: rgba(148, 163, 184, 0.2);
-  --shadow: 0 20px 60px rgba(2, 6, 23, 0.45);
+  --bg: #05070f;
+  --bg-2: #0b1230;
+  --surface: rgba(9, 14, 28, 0.86);
+  --card: rgba(11, 17, 36, 0.92);
+  --glass: rgba(11, 17, 36, 0.72);
+  --text: #e6f1ff;
+  --muted: #8aa0c8;
+  --accent: #00f5d4;
+  --accent-2: #ff4fd8;
+  --highlight: #4da3ff;
+  --border: rgba(77, 163, 255, 0.25);
+  --shadow: 0 22px 60px rgba(2, 6, 23, 0.6);
   --radius: 18px;
   --font-body: "Manrope", sans-serif;
   --font-heading: "Space Grotesk", sans-serif;
@@ -30,8 +30,9 @@ body {
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--text);
-  background: radial-gradient(circle at top, rgba(34, 197, 94, 0.08), transparent 45%),
-    radial-gradient(circle at 20% 40%, rgba(56, 189, 248, 0.08), transparent 45%),
+  background: radial-gradient(circle at top, rgba(0, 245, 212, 0.12), transparent 45%),
+    radial-gradient(circle at 20% 40%, rgba(77, 163, 255, 0.12), transparent 45%),
+    radial-gradient(circle at 80% 20%, rgba(255, 79, 216, 0.1), transparent 40%),
     linear-gradient(160deg, var(--bg), var(--bg-2));
   line-height: 1.7;
 }
@@ -40,8 +41,8 @@ body::before {
   content: "";
   position: fixed;
   inset: 0;
-  background-image: linear-gradient(rgba(148, 163, 184, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-image: linear-gradient(rgba(77, 163, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(77, 163, 255, 0.12) 1px, transparent 1px);
   background-size: 120px 120px;
   opacity: 0.2;
   pointer-events: none;
@@ -71,7 +72,7 @@ a {
   flex-direction: column;
   align-items: center;
   gap: 18px;
-  background: linear-gradient(180deg, rgba(20, 184, 166, 0.18), rgba(15, 23, 42, 0.8));
+  background: linear-gradient(180deg, rgba(0, 245, 212, 0.2), rgba(11, 17, 36, 0.9));
   border-right: 1px solid var(--border);
 }
 
@@ -80,8 +81,8 @@ a {
   height: 110px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid rgba(34, 197, 94, 0.6);
-  box-shadow: 0 12px 28px rgba(34, 197, 94, 0.25);
+  border: 3px solid rgba(0, 245, 212, 0.6);
+  box-shadow: 0 12px 28px rgba(0, 245, 212, 0.25);
 }
 
 .cv-name {
@@ -117,8 +118,8 @@ a {
 
 .cv-nav a:hover,
 .cv-nav a.active {
-  background: rgba(34, 197, 94, 0.2);
-  border-color: rgba(34, 197, 94, 0.5);
+  background: rgba(0, 245, 212, 0.2);
+  border-color: rgba(0, 245, 212, 0.55);
   transform: translateY(-1px);
 }
 
@@ -132,11 +133,11 @@ a {
 .chip {
   padding: 6px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(56, 189, 248, 0.3);
+  border: 1px solid rgba(77, 163, 255, 0.45);
   color: var(--highlight);
   font-size: 0.75rem;
   font-weight: 600;
-  background: rgba(56, 189, 248, 0.12);
+  background: rgba(77, 163, 255, 0.12);
 }
 
 .cv-main {
@@ -189,7 +190,7 @@ a {
 
 .project-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(34, 197, 94, 0.5);
+  border-color: rgba(0, 245, 212, 0.55);
 }
 
 .project-title {
@@ -211,19 +212,19 @@ a {
 .badge {
   padding: 4px 10px;
   border-radius: 999px;
-  border: 1px solid rgba(34, 197, 94, 0.4);
-  color: #bbf7d0;
+  border: 1px solid rgba(0, 245, 212, 0.45);
+  color: #b8fff5;
   font-size: 0.72rem;
   font-weight: 600;
-  background: rgba(34, 197, 94, 0.12);
+  background: rgba(0, 245, 212, 0.12);
 }
 
 .button-link {
   align-self: flex-start;
   padding: 8px 12px;
   border-radius: 10px;
-  background: linear-gradient(120deg, rgba(34, 197, 94, 0.25), rgba(20, 184, 166, 0.25));
-  border: 1px solid rgba(34, 197, 94, 0.5);
+  background: linear-gradient(120deg, rgba(0, 245, 212, 0.28), rgba(255, 79, 216, 0.22));
+  border: 1px solid rgba(0, 245, 212, 0.55);
   font-weight: 600;
   font-size: 0.85rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -231,7 +232,7 @@ a {
 
 .button-link:hover {
   transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(34, 197, 94, 0.25);
+  box-shadow: 0 10px 25px rgba(0, 245, 212, 0.25);
 }
 
 .rpg-skills {
@@ -253,7 +254,7 @@ a {
 
 .skill-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(56, 189, 248, 0.4);
+  border-color: rgba(77, 163, 255, 0.4);
 }
 
 .skill-name {
@@ -291,7 +292,7 @@ a {
 }
 
 .contact-link:hover {
-  border-color: rgba(34, 197, 94, 0.5);
+  border-color: rgba(0, 245, 212, 0.55);
   transform: translateY(-1px);
 }
 
