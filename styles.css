@@ -93,9 +93,52 @@ a {
 }
 
 .cv-role {
-  font-size: 0.95rem;
-  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
   text-align: center;
+}
+
+.cv-role-main {
+  font-size: 0.98rem;
+  font-weight: 700;
+}
+
+.cv-role-sub {
+  font-size: 0.88rem;
+  color: #b8fff5;
+}
+
+.cv-role-note {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.sidebar-links {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+}
+
+.sidebar-button {
+  text-align: center;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 245, 212, 0.55);
+  background: linear-gradient(120deg, rgba(0, 245, 212, 0.25), rgba(77, 163, 255, 0.24));
+  font-weight: 700;
+  font-size: 0.84rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.sidebar-button.secondary {
+  border-color: rgba(77, 163, 255, 0.5);
+  background: rgba(77, 163, 255, 0.14);
+}
+
+.sidebar-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(0, 245, 212, 0.22);
 }
 
 .cv-nav {
@@ -170,6 +213,30 @@ a {
   gap: 12px;
 }
 
+.section-lead {
+  color: #b8fff5;
+  font-weight: 600;
+}
+
+.value-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.value-list li {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(77, 163, 255, 0.35);
+  background: rgba(15, 23, 42, 0.4);
+  font-size: 0.92rem;
+}
+
+.value-list li::before {
+  content: "✔ ";
+  color: var(--accent);
+}
+
 .project-grid {
   list-style: none;
   display: grid;
@@ -196,6 +263,21 @@ a {
 .project-title {
   font-weight: 700;
   font-size: 1rem;
+}
+
+.project-details {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.project-details li {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.project-details strong {
+  color: var(--text);
 }
 
 .project-desc {
@@ -279,6 +361,47 @@ a {
 .contact-links {
   display: grid;
   gap: 10px;
+}
+
+.proof-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+}
+
+.proof-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.4);
+  padding: 14px;
+}
+
+.proof-number {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.proof-label {
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.proof-note {
+  color: #b8fff5;
+  font-size: 0.92rem;
+}
+
+.availability-card {
+  border: 1px solid rgba(0, 245, 212, 0.5);
+  background: linear-gradient(120deg, rgba(0, 245, 212, 0.16), rgba(77, 163, 255, 0.2));
+  border-radius: 14px;
+  padding: 14px;
+  display: grid;
+  gap: 4px;
+  font-weight: 600;
 }
 
 .contact-link {

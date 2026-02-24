@@ -14,16 +14,27 @@
     <aside class="cv-sidebar">
       <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo Sanches">
       <div class="cv-name">Victor Hugo Sanches</div>
-      <div class="cv-role">Desenvolvedor Full Stack • Ciência de Dados</div>
+      <div class="cv-role">
+        <div class="cv-role-main">Desenvolvedor Python & Dados</div>
+        <div class="cv-role-sub">Automação • IA • Análise de dados</div>
+        <div class="cv-role-note">Building real solutions with code and data</div>
+      </div>
       <nav class="cv-nav">
-        <a href="#sobre" data-section="sobre">Sobre mim</a>
+        <a href="#sobre" data-section="sobre">Sobre</a>
+        <a href="#resolvo" data-section="resolvo">O que eu resolvo</a>
         <a href="#projetos" data-section="projetos">Projetos</a>
         <a href="#skills" data-section="skills">Skills</a>
+        <a href="#prova" data-section="prova">Prova social</a>
+        <a href="#remoto" data-section="remoto">Remoto</a>
         <a href="#contato" data-section="contato">Contato</a>
       </nav>
       <div class="cv-chips">
-        <span class="chip">Santos/SP</span>
-        <span class="chip">Disponível para projetos</span>
+        <span class="chip">Brazil • Available for remote work</span>
+        <span class="chip">Open to estágio, júnior e freela</span>
+      </div>
+      <div class="sidebar-links">
+        <a class="sidebar-button" href="https://github.com/Sawxor19" target="_blank" rel="noreferrer">Ver GitHub</a>
+        <a class="sidebar-button secondary" href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" rel="noreferrer">Ver LinkedIn</a>
       </div>
     </aside>
 
@@ -32,28 +43,37 @@
         <div class="cv-section-title">Sobre</div>
         <div class="cv-section-content">
           <p>
-            Natural de Santos/SP, curso Ciência de Dados na Universidade Santa Cecília (término previsto em 2026).
-            Tenho foco em criar produtos digitais com impacto real, unindo dados, UX e engenharia de software.
+            Desenvolvedor focado em Python, automação de processos, IA aplicada e construção de produtos web orientados a dados.
+            Trabalho com foco em resultado: reduzir tarefas manuais, acelerar operação e transformar dados em decisões.
           </p>
           <p>
-            Primeiro comecei desenvolvendo uma tarefa simples para a empresa que eu trabalhava para ver como eu me saía
-            na área de programação e acabei gostando (apesar da minha faculdade não ser tão voltada pra esse ramo), e desde
-            então venho me aprofundando mais
-            em desenvolvimento web, principalmente com JavaScript e TypeScript, e também em ciência de dados, estatística e IA aplicada.
+            Atuo do problema ao deploy: levantamento de requisitos, desenvolvimento da solução, integração com APIs, modelagem de dados
+            e entrega com documentação clara para facilitar manutenção e escala.
           </p>
           <p>
-            Meu projeto mais recente é o <strong>E-Clinic</strong>, um SaaS para clínicas odontológicas com Next.js
-            (App Router), TypeScript, Supabase, Stripe e Tailwind — com autenticação, RBAC, relatórios e deploy na Vercel.
+            Meu case principal é o <strong>E-Clinic</strong>, um SaaS para clínicas odontológicas com Next.js, TypeScript,
+            Supabase e Stripe, incluindo autenticação, permissões, financeiro e estrutura multi-tenant.
           </p>
           <p>
-            Aos poucos, venho atualizando esse portfólio para que fique cada vez mais adequado aos tempos modernos e atualizo
-            projetos dos quais venho trabalhando.
+            Cursando Ciência de Dados (conclusão prevista para 2026), com aplicação prática contínua em projetos reais.
           </p>
-          <p>
-            Estou sempre aberto a novos desafios e oportunidades para crescer profissionalmente e contribuir com projetos
-            inovadores. Vamos conversar?
-          </p>
+        </div>
+      </section>
 
+      <section class="cv-section" id="resolvo">
+        <div class="cv-section-title">O que eu resolvo</div>
+        <div class="cv-section-content">
+          <p class="section-lead">What I can build para gerar ganho real no negócio:</p>
+          <ul class="value-list">
+            <li>Análise de dados com Python e SQL para gerar insights acionáveis</li>
+            <li>Scripts e automações para eliminar tarefas repetitivas do time</li>
+            <li>Dashboards e relatórios para acompanhar operação e desempenho</li>
+            <li>Ferramentas com IA para acelerar atendimento e produtividade</li>
+            <li>SaaS e sistemas web com foco em performance e escalabilidade</li>
+          </ul>
+          <p>
+            Objetivo em todos os projetos: transformar processo manual em fluxo automatizado, mensurável e mais lucrativo.
+          </p>
         </div>
       </section>
 
@@ -62,45 +82,35 @@
         <div class="cv-section-content">
           <ul class="project-grid">
             <li class="project-card">
-              <div class="project-title">🦷 E-Clinic — SaaS para clínicas odontológicas</div>
-              <p class="project-desc">
-                Plataforma completa com agendamento, prontuário, financeiro, permissões e integrações.
-              </p>
-              <div class="project-tags">
-                <span class="badge">Next.js</span>
-                <span class="badge">TypeScript</span>
-                <span class="badge">Supabase</span>
-                <span class="badge">Stripe</span>
-                <span class="badge">Tailwind</span>
-              </div>
+              <div class="project-title">Clinic SaaS (E-Clinic)</div>
+              <ul class="project-details">
+                <li><strong>Problema:</strong> clínicas com processos manuais, dados espalhados e baixa visibilidade financeira.</li>
+                <li><strong>Solução:</strong> SaaS para centralizar gestão clínica em um único sistema.</li>
+                <li><strong>Stack:</strong> Next.js, TypeScript, Supabase, Stripe, Tailwind.</li>
+                <li><strong>Resultado:</strong> operação mais organizada, pagamentos integrados e base pronta para escalar.</li>
+              </ul>
               <a class="button-link" href="https://e-clinic-br.vercel.app" target="_blank" rel="noreferrer">Ver Projeto</a>
             </li>
 
             <li class="project-card">
-              <div class="project-title">💬 Automação de orçamentos para WhatsApp</div>
-              <p class="project-desc">
-                Automação simples para gerar e enviar orçamentos com fluxo rápido de atendimento.
-              </p>
-              <div class="project-tags">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-              </div>
+              <div class="project-title">Automação de orçamentos via WhatsApp</div>
+              <ul class="project-details">
+                <li><strong>Problema:</strong> atendimento lento e perda de tempo com orçamentos manuais.</li>
+                <li><strong>Solução:</strong> fluxo automatizado para gerar e enviar orçamentos rapidamente.</li>
+                <li><strong>Stack:</strong> HTML, CSS, JavaScript.</li>
+                <li><strong>Resultado:</strong> tempo de resposta reduzido e processo comercial mais eficiente.</li>
+              </ul>
               <a class="button-link" href="https://sawxor19.github.io/projeto-mosquiteira/" target="_blank" rel="noreferrer">Ver Projeto</a>
             </li>
 
             <li class="project-card">
-              <div class="project-title">🌱 Reforma Agrária Interativa</div>
-              <p class="project-desc">
-                Site informativo interativo com dados, visualização e conteúdo educativo.
-              </p>
-              <div class="project-tags">
-                <span class="badge">HTML</span>
-                <span class="badge">CSS</span>
-                <span class="badge">JavaScript</span>
-                <span class="badge">CSV</span>
-                <span class="badge">Web App</span>
-              </div>
+              <div class="project-title">Portal interativo de dados socioambientais</div>
+              <ul class="project-details">
+                <li><strong>Problema:</strong> informação dispersa e pouco acessível para o público.</li>
+                <li><strong>Solução:</strong> web app com conteúdo estruturado, visualizações e navegação interativa.</li>
+                <li><strong>Stack:</strong> HTML, CSS, JavaScript, CSV.</li>
+                <li><strong>Resultado:</strong> dados complexos apresentados de forma clara e acessível.</li>
+              </ul>
               <a class="button-link" href="https://reformaagraria.eco.br" target="_blank" rel="noreferrer">Ver Projeto</a>
             </li>
           </ul>
@@ -127,6 +137,46 @@
         </div>
       </section>
 
+      <section class="cv-section" id="prova">
+        <div class="cv-section-title">Prova social</div>
+        <div class="cv-section-content">
+          <div class="proof-grid">
+            <div class="proof-card">
+              <div class="proof-number">+3</div>
+              <div class="proof-label">sistemas desenvolvidos e publicados</div>
+            </div>
+            <div class="proof-card">
+              <div class="proof-number">+2</div>
+              <div class="proof-label">automações reais para operação</div>
+            </div>
+            <div class="proof-card">
+              <div class="proof-number">1</div>
+              <div class="proof-label">SaaS funcional em produção</div>
+            </div>
+          </div>
+          <p class="proof-note">
+            LinkedIn, GitHub e cases ativos para validação rápida de experiência prática.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="https://github.com/Sawxor19" target="_blank" rel="noreferrer">GitHub: projetos principais</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" rel="noreferrer">LinkedIn: trajetória e networking</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="cv-section" id="remoto">
+        <div class="cv-section-title">Disponível para remoto</div>
+        <div class="cv-section-content">
+          <div class="availability-card">
+            <p>📍 Brazil — Available for remote work</p>
+            <p>Open to internships, junior roles and freelance projects.</p>
+          </div>
+          <p>
+            Disponível para colaborar com empresas no Brasil e no exterior, com entregas orientadas a produto, dados e automação.
+          </p>
+        </div>
+      </section>
+
       <section class="cv-section" id="contato">
         <div class="cv-section-title">Contato</div>
         <div class="cv-section-content">
@@ -147,8 +197,11 @@
     const navLinks = document.querySelectorAll('.cv-nav a[data-section]');
     const sections = {
       sobre: document.getElementById('sobre'),
+      resolvo: document.getElementById('resolvo'),
       projetos: document.getElementById('projetos'),
       skills: document.getElementById('skills'),
+      prova: document.getElementById('prova'),
+      remoto: document.getElementById('remoto'),
       contato: document.getElementById('contato')
     };
 
