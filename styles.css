@@ -190,9 +190,10 @@ a {
 
 .sidebar-links {
   width: 100%;
-  display: grid;
-  gap: 6px;
-  margin-top: 2px;
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  padding-top: 10px;
 }
 
 .sidebar-button {
@@ -209,10 +210,19 @@ a {
 }
 
 .sidebar-button.lang-switch {
-  border-color: rgba(245, 158, 11, 0.65);
-  background: linear-gradient(118deg, rgba(245, 158, 11, 0.22), rgba(14, 165, 233, 0.22));
-  box-shadow: 0 8px 22px rgba(245, 158, 11, 0.2);
-  animation: glowPulse 3s ease-in-out infinite;
+  width: auto;
+  padding: 2px 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #cfe8ff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  box-shadow: none;
+  animation: none;
 }
 
 .sidebar-button.secondary {
@@ -224,6 +234,13 @@ a {
   transform: translateY(-2px);
   border-color: var(--border-strong);
   box-shadow: 0 14px 30px rgba(2, 6, 23, 0.45);
+}
+
+.sidebar-button.lang-switch:hover {
+  transform: none;
+  border-color: transparent;
+  box-shadow: none;
+  color: #ffffff;
 }
 
 .cv-main {
