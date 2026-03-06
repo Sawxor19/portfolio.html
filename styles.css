@@ -30,6 +30,7 @@ html {
 }
 
 body {
+  zoom: 90%;
   min-height: 100vh;
   font-family: var(--font-body);
   color: var(--text);
@@ -91,7 +92,7 @@ a {
   pointer-events: none;
 }
 
-# Simplificado: menos padding, menos sombra, sem borda lateral
+/* Simplificado: menos padding, menos sombra, sem borda lateral */
 .cv-sidebar {
   position: relative;
   padding: 18px 10px;
