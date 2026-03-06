@@ -37,10 +37,10 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
   background:
-    radial-gradient(1100px 650px at -10% -10%, rgba(34, 211, 238, 0.15), transparent 55%),
-    radial-gradient(1000px 650px at 110% 0%, rgba(56, 189, 248, 0.14), transparent 50%),
-    radial-gradient(900px 650px at 50% 120%, rgba(14, 165, 233, 0.08), transparent 60%),
-    linear-gradient(160deg, var(--bg-main) 0%, #050c1e 45%, var(--bg-soft) 100%);
+    linear-gradient(160deg, rgba(2, 6, 23, 0.86) 0%, rgba(5, 12, 30, 0.9) 45%, rgba(6, 15, 36, 0.92) 100%),
+    radial-gradient(900px 560px at -5% -10%, rgba(34, 211, 238, 0.14), transparent 56%),
+    radial-gradient(980px 600px at 105% 0%, rgba(56, 189, 248, 0.12), transparent 52%),
+    url("background.png") center center / cover no-repeat fixed;
 }
 
 body::before,
@@ -53,10 +53,10 @@ body::after {
 
 body::before {
   background-image:
-    linear-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.08) 1px, transparent 1px);
-  background-size: 110px 110px;
-  opacity: 0.22;
+    linear-gradient(rgba(56, 189, 248, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.06) 1px, transparent 1px);
+  background-size: 120px 120px;
+  opacity: 0.14;
 }
 
 body::after {
