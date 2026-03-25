@@ -1,4 +1,12 @@
 (() => {
+  // Prevent browser from restoring previous scroll position
+  if ("scrollRestoration" in history) {
+    history.scrollRestoration = "manual";
+  }
+  if (!window.location.hash) {
+    window.scrollTo(0, 0);
+  }
+
   function normalizeText(value) {
     return (value || "")
       .normalize("NFD")
