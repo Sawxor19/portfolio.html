@@ -3,166 +3,229 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Victor Hugo Sanches - Portfolio</title>
+  <title>Victor Hugo Sanches — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260306-bgfix">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260322-redesign">
 </head>
 <body>
-  <div class="cv-container">
-    <aside class="cv-sidebar">
-      <img id="profile-pic" src="image0.jpeg" alt="Victor Hugo Sanches">
-      <div class="cv-name">Victor Hugo Sanches</div>
-      <div class="cv-role">
-        <div class="cv-role-main">Python & Data Developer</div>
-        <div class="cv-role-sub">Automation • AI • Data Analysis</div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <span class="hero-label">CREATIVE DEVELOPER</span>
+      <h1 class="hero-title">
+        Crafting<br>
+        <em>Digital</em><br>
+        Excellence
+      </h1>
+      <p class="hero-desc">
+        Passionate full-stack developer focused on data and AI-powered solutions. Creator of E-Clinic, a SaaS for dental clinics built with Next.js, TypeScript, Supabase and Stripe. Always eager to solve problems, learn and collaborate.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">View My Work</a>
+        <a class="btn btn-outline" href="#contact">Contact Me</a>
       </div>
-      <nav class="cv-nav">
+      <div class="hero-socials">
+        <a href="https://github.com/Sawxor19" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="mailto:sawxor@icloud.com" aria-label="Email">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <div class="hero-photo-wrapper">
+        <img src="image0.jpeg" alt="Victor Hugo Sanches">
+      </div>
+      <div class="hero-badge">
+        <span class="badge-number">2  +</span>
+        <span class="badge-text">Years of<br>Experience</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="section-inner">
+      <h2 class="section-title">About Me</h2>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Hello! My name is <strong>Victor Hugo Sanches</strong>, I am 26 years old, from Santos (SP), Brazil. I am currently pursuing a degree in Data Science, developing skills in data analysis, interpretation and modeling.</p>
+          <p>My professional journey started in sales, which gave me strong communication and negotiation skills. I currently work in operational management at a metalworking company, handling customer service, demand organization and budgeting.</p>
+          <p>This hands-on experience helped me build an analytical mindset focused on efficiency and problem-solving — skills I now apply in Data Science and web development.</p>
+        </div>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <span class="highlight-icon">🎓</span>
+            <div>
+              <strong>Data Science</strong>
+              <p>Santa Cecília University</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon">📍</span>
+            <div>
+              <strong>Santos, SP</strong>
+              <p>Brazil</p>
+            </div>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-icon">🚀</span>
+            <div>
+              <strong>Current focus</strong>
+              <p>Full-Stack & Data</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section section-alt" id="projects">
+    <div class="section-inner">
+      <h2 class="section-title">Projects</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">🦷</span>
+            <h3 class="project-name">E-Clinic — Clinic SaaS</h3>
+          </div>
+          <p class="project-desc">Full platform with scheduling, medical records, finances, permissions and integrations. More organized operations, integrated billing and a foundation ready to scale.</p>
+          <div class="project-tags">
+            <span class="tag">Next.js</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">Supabase</span>
+            <span class="tag">Stripe</span>
+            <span class="tag">Tailwind</span>
+          </div>
+          <a class="project-link" href="https://e-clinic-br.vercel.app" target="_blank" rel="noreferrer">View Project →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">💬</span>
+            <h3 class="project-name">WhatsApp Budget Automation</h3>
+          </div>
+          <p class="project-desc">Automated flow to generate and send quotes via WhatsApp. Faster response times and a more efficient commercial process.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a class="project-link" href="https://sawxor19.github.io/projeto-mosquiteira/" target="_blank" rel="noreferrer">View Project →</a>
+        </article>
+
+        <article class="project-card">
+          <div class="project-header">
+            <span class="project-icon">🌱</span>
+            <h3 class="project-name">Interactive Agrarian Reform</h3>
+          </div>
+          <p class="project-desc">Informational web page built to turn textual and statistical content about agrarian reform into clear, accessible digital information.</p>
+          <div class="project-tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <a class="project-link" href="https://reformaagraria.eco.br" target="_blank" rel="noreferrer">View Project →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="section" id="skills">
+    <div class="section-inner">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Front-end</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Next.js</span>
+            <span class="skill-pill">React</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">Tailwind CSS</span>
+            <span class="skill-pill">HTML / CSS</span>
+            <span class="skill-pill">JavaScript</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Back-end & Data</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Supabase</span>
+            <span class="skill-pill">SQL / PostgreSQL</span>
+            <span class="skill-pill">Stripe</span>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3 class="skill-cat-title">Other</h3>
+          <div class="skill-items">
+            <span class="skill-pill">Statistics</span>
+            <span class="skill-pill">Applied AI</span>
+            <span class="skill-pill">Communication</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="section section-alt" id="contact">
+    <div class="section-inner">
+      <h2 class="section-title">Let's Talk?</h2>
+      <p class="contact-intro">I'm looking for my first professional opportunity in data and development. Let's connect!</p>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:sawxor@icloud.com">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+          <span>sawxor@icloud.com</span>
+        </a>
+        <a class="contact-card" href="tel:+5513996667776">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          <span>+55 (13) 99666-7776</span>
+        </a>
+        <a class="contact-card" href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" rel="noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          <span>LinkedIn</span>
+        </a>
+        <a class="contact-card" href="https://github.com/Sawxor19" target="_blank" rel="noreferrer">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM NAV -->
+  <nav class="bottom-nav">
+    <div class="nav-inner">
+      <div class="nav-brand">Portfolio</div>
+      <div class="nav-separator"></div>
+      <div class="nav-links">
+        <a href="#home" data-section="home">Home</a>
         <a href="#about" data-section="about">About</a>
         <a href="#projects" data-section="projects">Projects</a>
         <a href="#skills" data-section="skills">Skills</a>
         <a href="#contact" data-section="contact">Contact</a>
-      </nav>
-      <div class="sidebar-links">
-        <a class="sidebar-button lang-switch" href="index.html">Ver em Português</a>
       </div>
-    </aside>
+      <div class="nav-separator"></div>
+      <a class="nav-cta" href="index.html">PT</a>
+      <a class="nav-cta nav-cta-primary" href="#contact">LET'S TALK</a>
+    </div>
+  </nav>
 
-    <main class="cv-main">
-      <section class="cv-section" id="about">
-        <div class="cv-section-title">About</div>
-        <div class="cv-section-content">
-          <p>
-            Hello! My name is Victor Hugo Sanches, I am 26 years old, and I am from Santos (SP), Brazil.
-          </p>
-          <p>
-            I am currently pursuing a degree in Data Science, where I have been developing skills in data analysis, interpretation and modeling to turn information into insights that support strategic decisions.
-          </p>
-          <p>
-            My professional journey started in sales, where I developed strong communication, negotiation and client-needs analysis skills. </p>
-          <p>Today, I work in the operational management of a metalworking company specialized in mosquito screens, handling multiple areas of the business, including customer service, demand organization, budgeting and day-to-day operational support.
-          </p>
-          <p>
-            This hands-on experience helped me build an analytical mindset focused on efficiency, problem-solving and process improvement, skills I now aim to apply in the Data Science field.
-          </p>
-          <p>
-            My main case is E-Clinic, a SaaS for dental clinics built with Next.js, TypeScript, Supabase and Stripe, including authentication, permissions, financial workflows and a multi-tenant structure.
-          </p>
-          <p>
-            I am looking for my first professional opportunity in data, where I can apply and expand my technical knowledge while helping companies make decisions guided by data and evidence.
-          </p>
-        </div>
-      </section>
+  <footer>
+    <p>© 2026 Victor Hugo Sanches. All rights reserved.</p>
+  </footer>
 
-      <section class="cv-section" id="projects">
-        <div class="cv-section-title">Projects</div>
-        <div class="cv-section-content">
-          <ul class="project-grid">
-            <li class="project-card">
-              <div class="project-title">Clinic SaaS (E-Clinic)</div>
-              <ul class="project-details">
-                <li><strong>Problem:</strong> clinics operating with manual processes, scattered data and poor financial visibility.</li>
-                <li><strong>Solution:</strong> SaaS platform to centralize clinic management in one system.</li>
-                <li><strong>Stack:</strong> Next.js, TypeScript, Supabase, Stripe, Tailwind.</li>
-                <li><strong>Result:</strong> more organized operations, integrated billing and a foundation ready to scale.</li>
-              </ul>
-              <a class="button-link" href="https://e-clinic-br.vercel.app" target="_blank" rel="noreferrer">View Project</a>
-            </li>
-
-            <li class="project-card">
-              <div class="project-title">WhatsApp budget automation</div>
-              <ul class="project-details">
-                <li><strong>Problem:</strong> slow response times and time loss with manual quote creation.</li>
-                <li><strong>Solution:</strong> automated flow to generate and send quotes faster.</li>
-                <li><strong>Stack:</strong> HTML, CSS, JavaScript.</li>
-                <li><strong>Result:</strong> faster service and a more efficient commercial process.</li>
-              </ul>
-              <a class="button-link" href="https://sawxor19.github.io/projeto-mosquiteira/" target="_blank" rel="noreferrer">View Project</a>
-            </li>
-
-            <li class="project-card">
-              <div class="project-title">Informational web flyer: Agrarian reform in Brazil</div>
-              <ul class="project-details">
-                <li><strong>Problem:</strong> challenge of presenting agrarian reform data and arguments in an organized, visual way.</li>
-                <li><strong>Solution:</strong> informational web page built to turn textual and statistical content into clear, accessible digital information.</li>
-                <li><strong>Stack:</strong> HTML, CSS, JavaScript.</li>
-                <li><strong>Objective:</strong> demonstrate skills in information structuring, front-end development and data communication.</li>
-              </ul>
-              <a class="button-link" href="https://reformaagraria.eco.br" target="_blank" rel="noreferrer">View Project</a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section class="cv-section" id="skills">
-        <div class="cv-section-title">Skills</div>
-        <div class="cv-section-content">
-          <div class="rpg-skills">
-            <div class="skill-card"><div class="skill-name">⚡ Next.js</div><div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">⚛️ React</div><div class="skill-bar"><div class="skill-fill" style="width:75%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🟦 TypeScript</div><div class="skill-bar"><div class="skill-fill" style="width:65%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🌐 Node.js</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🗄️ Supabase</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">💳 Stripe</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🎨 Tailwind CSS</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🧠 Python</div><div class="skill-bar"><div class="skill-fill" style="width:70%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">📊 Statistics</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🗃️ SQL / PostgreSQL</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">🤖 Applied AI</div><div class="skill-bar"><div class="skill-fill" style="width:60%;"></div></div></div>
-            <div class="skill-card"><div class="skill-name">💬 Communication</div><div class="skill-bar"><div class="skill-fill" style="width:80%;"></div></div></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="cv-section" id="contact">
-        <div class="cv-section-title">Contact</div>
-        <div class="cv-section-content">
-          <div class="contact-links">
-            <a class="contact-link" href="mailto:sawxor@icloud.com">📧 sawxor@icloud.com</a>
-            <a class="contact-link" href="tel:+5513996667776">📞 +55 (13) 99666-7776</a>
-            <a class="contact-link" href="https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
-            <a class="contact-link" href="https://github.com/Sawxor19" target="_blank" rel="noreferrer">💻 GitHub</a>
-          </div>
-        </div>
-      </section>
-    </main>
-  </div>
-
-  <footer>© 2026 Victor Hugo Sanches</footer>
-
-  <script>
-    const navLinks = document.querySelectorAll('.cv-nav a[data-section]');
-    const sections = {
-      about: document.getElementById('about'),
-      projects: document.getElementById('projects'),
-      skills: document.getElementById('skills'),
-      contact: document.getElementById('contact')
-    };
-
-    function showSection(sectionId) {
-      for (const key in sections) {
-        if (sections[key]) {
-          sections[key].style.display = (key === sectionId) ? 'block' : 'none';
-        }
-      }
-      navLinks.forEach(link => {
-        if (link.dataset.section === sectionId) {
-          link.classList.add('active');
-        } else {
-          link.classList.remove('active');
-        }
-      });
-    }
-
-    navLinks.forEach(link => {
-      link.addEventListener('click', function (e) {
-        e.preventDefault();
-        showSection(this.dataset.section);
-      });
-    });
-
-    showSection('about');
-  </script>
+  <script src="scripts/portfolio.js"></script>
 </body>
 </html>

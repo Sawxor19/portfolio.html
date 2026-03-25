@@ -14,7 +14,8 @@ Meu projeto mais recente é o **E‑Clinic**, um SaaS para clínicas odontológi
 ## Projetos
 - **[E-Clinic — SaaS para clínicas odontológicas](https://e-clinic-br.vercel.app)** — Next.js (App Router), TypeScript, Supabase, Stripe, RBAC e deploy na Vercel.
 - **[Sistema de Orçamento Automatizado](https://github.com/Mosquiteira/orcamento)** — Automação em HTML, CSS e JavaScript para gerar orçamentos via WhatsApp.
-- **[Reforma Agrária Interativa](https://reformaagraria.eco.br)** — Web app educativo com visualização de dados.
+- **[Reforma Agrária Educativa](https://reformaagraria.eco.br)** — Web app educativo com visualização de dados.
+- **[Renúncias Fiscais em Santos](https://sawxor19.github.io/RENUNCIAS_FISCAIS_SANTOS_SP/dashboard_renuncias_santos.html)** — Dashboard exploratório com leitura de concentração, setores e tipos de benefício.
 
 ---
 
@@ -38,6 +39,18 @@ Meu projeto mais recente é o **E‑Clinic**, um SaaS para clínicas odontológi
 
 ## Link do Portfólio Online
 Acesse meu site: **[Victor Hugo Sanches — Portfólio](https://sawxor19.github.io/portfolio.html/)**
+
+---
+
+## PDF Interativo
+Para gerar os PDFs interativos em português e inglês:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\export-pdf.ps1
+```
+
+Os arquivos são exportados para a pasta `pdf/` com links clicáveis para projetos, e-mail, telefone, LinkedIn e GitHub.
+Se necessário, o script instala automaticamente a dependência `pypdf` para unir as páginas exportadas.
 
 ---
 
