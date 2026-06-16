@@ -1229,53 +1229,113 @@ img {
   color: var(--text-secondary);
 }
 
-.formation-track-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-}
-
-.formation-track-card {
+.formation-record {
+  margin-top: 22px;
+  padding: 26px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--bg-white);
-  padding: 20px;
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 253, 0.98));
+  box-shadow: var(--shadow);
 }
 
-.formation-track-card h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
+.formation-record-title {
+  font-size: 1.08rem;
+  margin-bottom: 18px;
   color: var(--text);
 }
 
-.formation-track-card p {
-  color: var(--text-secondary);
-  font-size: 0.87rem;
-  margin-bottom: 10px;
-}
-
-.formation-track-card ul {
-  list-style: none;
+.formation-period-grid {
   display: grid;
-  gap: 8px;
+  gap: 18px;
 }
 
-.formation-track-card li {
+.formation-period-card {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: var(--bg-white);
+  padding: 18px;
+}
+
+.formation-period-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.formation-period-head h4 {
+  font-size: 1rem;
+  color: #163d58;
+}
+
+.formation-period-total {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(47, 118, 157, 0.08);
+  padding: 6px 10px;
+  border-radius: var(--radius-full);
+}
+
+.formation-table-wrap {
+  overflow-x: auto;
+}
+
+.formation-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 660px;
+}
+
+.formation-table th,
+.formation-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(47, 118, 157, 0.12);
+  text-align: left;
   font-size: 0.84rem;
-  color: var(--text-secondary);
-  padding-left: 14px;
-  position: relative;
 }
 
-.formation-track-card li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-  position: absolute;
-  left: 0;
-  top: 0.6em;
+.formation-table th {
+  color: var(--text-muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.formation-table td {
+  color: var(--text-secondary);
+}
+
+.formation-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.status-pill.approved {
+  background: rgba(25, 135, 84, 0.12);
+  color: #166534;
+}
+
+.status-pill.failed {
+  background: rgba(220, 38, 38, 0.12);
+  color: #991b1b;
+}
+
+.status-pill.enrolled {
+  background: rgba(47, 118, 157, 0.12);
+  color: var(--accent-dark);
 }
 
 /* ===== SKILLS ===== */
@@ -1557,6 +1617,15 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .formation-record {
+    padding: 18px;
+  }
+
+  .formation-period-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .bottom-nav {
     padding: 0 16px;
   }
@@ -1601,6 +1670,14 @@ footer {
 
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .formation-record {
+    padding: 14px;
+  }
+
+  .formation-period-card {
+    padding: 14px;
   }
 }
 
