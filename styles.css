@@ -319,6 +319,70 @@ img {
   color: var(--text-muted);
 }
 
+.academic-matrix {
+  margin-top: 48px;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+
+.academic-matrix-head {
+  max-width: 760px;
+  margin-bottom: 24px;
+}
+
+.academic-label,
+.academic-card-kicker {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.academic-matrix-head h3 {
+  margin: 8px 0 10px;
+  font-size: 1.25rem;
+  color: var(--text);
+}
+
+.academic-matrix-head p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.academic-matrix-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.academic-card {
+  min-height: 190px;
+  padding: 22px;
+  background: var(--bg-white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.academic-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
+}
+
+.academic-card h4 {
+  margin: 8px 0 10px;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.academic-card p {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
 /* ===== PROJETOS SHOWCASE ===== */
 .project-showcase {
   overflow: hidden;
@@ -1402,6 +1466,14 @@ footer {
     grid-template-columns: 1fr;
   }
 
+  .academic-matrix {
+    margin-top: 36px;
+  }
+
+  .academic-matrix-grid {
+    grid-template-columns: 1fr;
+  }
+
   .section {
     padding: 48px 24px;
   }
@@ -1469,6 +1541,11 @@ footer {
 
   .skills-grid {
     grid-template-columns: 1fr;
+  }
+
+  .academic-card {
+    min-height: auto;
+    padding: 20px;
   }
 }
 
