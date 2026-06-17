@@ -197,6 +197,19 @@
     let currentIndex = 0;
     let filteredCards = cards.slice();
 
+    function scrollGridToCard(card, behavior = "smooth") {
+      if (!card) return;
+
+      const gridRect = grid.getBoundingClientRect();
+      const cardRect = card.getBoundingClientRect();
+      const nextLeft = grid.scrollLeft + cardRect.left - gridRect.left;
+
+      grid.scrollTo({
+        left: nextLeft,
+        behavior,
+      });
+    }
+
     function getVisibleCount() {
       if (window.innerWidth <= 760) return 1;
       if (window.innerWidth <= 1040) return 2;
@@ -216,13 +229,14 @@
         dot.classList.toggle("is-active", i === currentIndex);
         dot.addEventListener("click", () => {
           currentIndex = i;
-          updateCarousel();
+          updateCarousel({ shouldScroll: true });
         });
         pagination.appendChild(dot);
       }
     }
 
-    function updateCarousel() {
+    function updateCarousel(options = {}) {
+      const { shouldScroll = false, behavior = "smooth" } = options;
       const query = normalizeText(searchInput.value);
 
       filteredCards = cards.filter((card) => {
@@ -237,8 +251,8 @@
       const maxIndex = Math.max(0, filteredCards.length - visibleCount);
       currentIndex = Math.min(currentIndex, maxIndex);
 
-      if (filteredCards.length > 0 && filteredCards[currentIndex]) {
-        filteredCards[currentIndex].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" });
+      if (shouldScroll && filteredCards.length > 0 && filteredCards[currentIndex]) {
+        scrollGridToCard(filteredCards[currentIndex], behavior);
       }
 
       prevButton.disabled = currentIndex === 0 || filteredCards.length === 0;
@@ -256,13 +270,13 @@
 
     searchInput.addEventListener("input", () => {
       currentIndex = 0;
-      updateCarousel();
+      updateCarousel({ shouldScroll: true });
     });
 
     prevButton.addEventListener("click", () => {
       if (currentIndex === 0) return;
       currentIndex -= 1;
-      updateCarousel();
+      updateCarousel({ shouldScroll: true });
     });
 
     nextButton.addEventListener("click", () => {
@@ -270,10 +284,10 @@
       const maxIndex = Math.max(0, filteredCards.length - visibleCount);
       if (currentIndex >= maxIndex) return;
       currentIndex += 1;
-      updateCarousel();
+      updateCarousel({ shouldScroll: true });
     });
 
-    window.addEventListener("resize", updateCarousel);
+    window.addEventListener("resize", () => updateCarousel({ shouldScroll: true, behavior: "auto" }));
     updateCarousel();
   }
 
