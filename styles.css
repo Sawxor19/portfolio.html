@@ -1150,194 +1150,6 @@ img {
   letter-spacing: 0.08em;
 }
 
-/* ===== FORMACAO ===== */
-.formation-intro {
-  max-width: 760px;
-  color: var(--text-secondary);
-  line-height: 1.8;
-  margin-bottom: 28px;
-}
-
-.formation-metrics {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-bottom: 22px;
-}
-
-.formation-metric-card {
-  background: var(--bg-white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 20px;
-  display: grid;
-  gap: 6px;
-}
-
-.formation-metric-value {
-  font-size: 1.45rem;
-  font-weight: 700;
-  color: var(--accent);
-  line-height: 1;
-}
-
-.formation-metric-label {
-  font-size: 0.84rem;
-  color: var(--text-muted);
-}
-
-.formation-role-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
-  margin-bottom: 22px;
-}
-
-.formation-role-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(242, 249, 253, 0.98));
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 22px;
-  display: grid;
-  gap: 12px;
-}
-
-.formation-role-card h3 {
-  font-size: 1.02rem;
-  color: #163d58;
-}
-
-.formation-role-card p {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-.formation-role-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.formation-role-tags span {
-  padding: 6px 10px;
-  border-radius: var(--radius-full);
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.9);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.formation-record {
-  margin-top: 22px;
-  padding: 26px;
-  border: 1px solid var(--border);
-  border-radius: 24px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(246, 250, 253, 0.98));
-  box-shadow: var(--shadow);
-}
-
-.formation-record-title {
-  font-size: 1.08rem;
-  margin-bottom: 18px;
-  color: var(--text);
-}
-
-.formation-period-grid {
-  display: grid;
-  gap: 18px;
-}
-
-.formation-period-card {
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  background: var(--bg-white);
-  padding: 18px;
-}
-
-.formation-period-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
-}
-
-.formation-period-head h4 {
-  font-size: 1rem;
-  color: #163d58;
-}
-
-.formation-period-total {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: var(--accent);
-  background: rgba(47, 118, 157, 0.08);
-  padding: 6px 10px;
-  border-radius: var(--radius-full);
-}
-
-.formation-table-wrap {
-  overflow-x: auto;
-}
-
-.formation-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 660px;
-}
-
-.formation-table th,
-.formation-table td {
-  padding: 12px 10px;
-  border-bottom: 1px solid rgba(47, 118, 157, 0.12);
-  text-align: left;
-  font-size: 0.84rem;
-}
-
-.formation-table th {
-  color: var(--text-muted);
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.formation-table td {
-  color: var(--text-secondary);
-}
-
-.formation-table tbody tr:last-child td {
-  border-bottom: none;
-}
-
-.status-pill {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 5px 10px;
-  border-radius: 999px;
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-}
-
-.status-pill.approved {
-  background: rgba(25, 135, 84, 0.12);
-  color: #166534;
-}
-
-.status-pill.failed {
-  background: rgba(220, 38, 38, 0.12);
-  color: #991b1b;
-}
-
-.status-pill.enrolled {
-  background: rgba(47, 118, 157, 0.12);
-  color: var(--accent-dark);
-}
-
 /* ===== SKILLS ===== */
 .skills-grid {
   display: grid;
@@ -1612,16 +1424,10 @@ footer {
   .project-card {
     padding: 24px;
   }
-
-  .formation-metrics {
     grid-template-columns: 1fr;
   }
-
-  .formation-record {
     padding: 18px;
   }
-
-  .formation-period-head {
     flex-direction: column;
     align-items: flex-start;
   }
@@ -1671,12 +1477,8 @@ footer {
   .skills-grid {
     grid-template-columns: 1fr;
   }
-
-  .formation-record {
     padding: 14px;
   }
-
-  .formation-period-card {
     padding: 14px;
   }
 }
@@ -2821,3 +2623,4 @@ body.project-detail-page {
     max-height: calc(100vh - 150px);
   }
 }
+
