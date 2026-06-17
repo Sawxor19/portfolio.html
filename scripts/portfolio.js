@@ -3,7 +3,16 @@
   if ("scrollRestoration" in history) {
     history.scrollRestoration = "manual";
   }
-  if (!window.location.hash) {
+
+  const initialHash = window.location.hash;
+  const navigationEntry = performance.getEntriesByType?.("navigation")?.[0];
+  const cameFromProjectDetail = document.referrer.includes("/projetos/");
+  const shouldStartAtTop = !initialHash || navigationEntry?.type === "reload" || !cameFromProjectDetail;
+
+  if (shouldStartAtTop) {
+    if (initialHash && "replaceState" in history) {
+      history.replaceState(null, "", window.location.pathname + window.location.search);
+    }
     window.scrollTo(0, 0);
   }
 
@@ -31,11 +40,6 @@
 
           event.preventDefault();
           target.scrollIntoView({ behavior: "smooth", block: "start" });
-
-          const nextHash = `#${target.id}`;
-          if (window.location.hash !== nextHash) {
-            history.pushState(null, "", nextHash);
-          }
         });
       });
     }
