@@ -24,10 +24,17 @@
     if (navLinks.length) {
       navLinks.forEach((link) => {
         link.addEventListener("click", (event) => {
-          event.preventDefault();
           const target = document.getElementById(link.dataset.section);
-          if (target) {
-            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          if (!target) {
+            return;
+          }
+
+          event.preventDefault();
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+
+          const nextHash = `#${target.id}`;
+          if (window.location.hash !== nextHash) {
+            history.pushState(null, "", nextHash);
           }
         });
       });
@@ -55,6 +62,14 @@
   }
 
   function initRevealAnimations() {
+    if (!("IntersectionObserver" in window)) {
+      document.querySelectorAll(".section, .hero").forEach((element) => {
+        element.style.opacity = "1";
+        element.style.transform = "translateY(0)";
+      });
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -186,14 +201,14 @@
 
     function renderDots() {
       const visibleCount = getVisibleCount();
-      const totalSteps = Math.max(1, filteredCards.length - visibleCount + 1);
+      const totalSteps = filteredCards.length > 0 ? Math.max(1, filteredCards.length - visibleCount + 1) : 0;
       pagination.innerHTML = "";
 
       for (let i = 0; i < totalSteps; i += 1) {
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "project-gallery-dot";
-        dot.setAttribute("aria-label", `Ir para posição ${i + 1}`);
+        dot.setAttribute("aria-label", `Ir para item ${i + 1}`);
         dot.classList.toggle("is-active", i === currentIndex);
         dot.addEventListener("click", () => {
           currentIndex = i;
