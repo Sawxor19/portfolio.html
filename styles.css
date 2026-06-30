@@ -546,6 +546,7 @@ img {
 
 .project-showcase-preview {
   padding: 14px;
+  height: 188px;
   min-height: 188px;
   border-bottom: 1px solid rgba(47, 118, 157, 0.08);
 }
@@ -553,7 +554,7 @@ img {
 .project-showcase-preview-media {
   position: relative;
   display: flex;
-  align-items: stretch;
+  align-items: center;
   justify-content: center;
   padding: 16px;
   background: linear-gradient(145deg, #d7edf8, #eff7fc);
@@ -583,7 +584,9 @@ img {
 }
 
 .project-showcase-shot-main {
-  min-height: 156px;
+  height: 100%;
+  min-height: 0;
+  object-fit: contain;
 }
 
 .project-showcase-shot-overlay {
