@@ -194,6 +194,7 @@
       return;
     }
 
+    const isEnglish = document.documentElement.lang?.toLowerCase().startsWith("en");
     let currentIndex = 0;
     let filteredCards = cards.slice();
 
@@ -225,7 +226,7 @@
         const dot = document.createElement("button");
         dot.type = "button";
         dot.className = "project-gallery-dot";
-        dot.setAttribute("aria-label", `Ir para item ${i + 1}`);
+        dot.setAttribute("aria-label", isEnglish ? `Go to item ${i + 1}` : `Ir para item ${i + 1}`);
         dot.classList.toggle("is-active", i === currentIndex);
         dot.addEventListener("click", () => {
           currentIndex = i;
@@ -259,10 +260,12 @@
       nextButton.disabled = currentIndex >= maxIndex || filteredCards.length === 0;
 
       if (filteredCards.length === 0) {
-        countLabel.textContent = "Nenhum projeto encontrado";
+        countLabel.textContent = isEnglish ? "No projects found" : "Nenhum projeto encontrado";
       } else {
         const endIdx = Math.min(currentIndex + visibleCount, filteredCards.length);
-        countLabel.textContent = `Mostrando ${currentIndex + 1}-${endIdx} de ${filteredCards.length} projetos`;
+        countLabel.textContent = isEnglish
+          ? `Showing ${currentIndex + 1}-${endIdx} of ${filteredCards.length} projects`
+          : `Mostrando ${currentIndex + 1}-${endIdx} de ${filteredCards.length} projetos`;
       }
 
       renderDots();

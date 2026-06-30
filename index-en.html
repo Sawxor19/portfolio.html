@@ -109,69 +109,223 @@
   </section>
 
   <!-- PROJECTS -->
-  <section class="section section-alt" id="projects">
+  <section class="section section-alt project-showcase" id="projects">
     <div class="section-inner">
-      <h2 class="section-title">Projects</h2>
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-icon">🦷</span>
-            <h3 class="project-name">E-Clinic — Clinic SaaS</h3>
+      <div class="project-showcase-shell" data-project-gallery>
+        <div class="project-showcase-head">
+          <div class="project-showcase-breadcrumb">
+            <span>Home</span>
+            <span>/</span>
+            <span>Projects</span>
           </div>
-          <p class="project-desc">Full platform with scheduling, medical records, finances, permissions and integrations. More organized operations, integrated billing and a foundation ready to scale.</p>
-          <div class="project-tags">
-            <span class="tag">Next.js</span>
-            <span class="tag">TypeScript</span>
-            <span class="tag">Supabase</span>
-            <span class="tag">Stripe</span>
-            <span class="tag">Tailwind</span>
-          </div>
-          <a class="project-link" href="https://e-clinic-br.vercel.app" target="_blank" rel="noreferrer">View Project →</a>
-        </article>
+          <h2 class="project-showcase-title">All Projects</h2>
+          <p class="project-showcase-intro">
+            Explore my main work across software, web, automation, data and visual design.
+          </p>
+        </div>
 
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-icon">💬</span>
-            <h3 class="project-name">WhatsApp Budget Automation</h3>
-          </div>
-          <p class="project-desc">Automated flow to generate and send quotes via WhatsApp. Faster response times and a more efficient commercial process.</p>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-          <a class="project-link" href="https://sawxor19.github.io/projeto-mosquiteira/" target="_blank" rel="noreferrer">View Project →</a>
-        </article>
+        <div class="project-showcase-toolbar">
+          <label class="project-search-field" for="project-search">
+            <span class="project-search-icon" aria-hidden="true">⌕</span>
+            <input
+              id="project-search"
+              type="search"
+              placeholder="Search by name, technology or category..."
+              autocomplete="off"
+              data-project-search
+            >
+          </label>
+        </div>
 
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-icon">⚙</span>
-            <h3 class="project-name">Mosquiteira.com Internal Management System</h3>
-          </div>
-          <p class="project-desc">Internal platform for clients, quotes, scheduling, logistics, inventory, finance and production, built with a mobile-first operational experience.</p>
-          <div class="project-tags">
-            <span class="tag">React</span>
-            <span class="tag">Vite</span>
-            <span class="tag">Express</span>
-            <span class="tag">SQLite</span>
-            <span class="tag">PDFKit</span>
-          </div>
-          <a class="project-link" href="projetos/sistema-mosquiteira.html">View Project →</a>
-        </article>
+        <div class="project-gallery-layout">
+          <button class="project-gallery-nav" type="button" data-gallery-control="prev" aria-label="Previous projects">
+            <span aria-hidden="true">←</span>
+          </button>
 
-        <article class="project-card">
-          <div class="project-header">
-            <span class="project-icon">🌱</span>
-            <h3 class="project-name">Interactive Agrarian Reform</h3>
+          <div class="project-gallery-main">
+            <div class="project-gallery-grid" data-project-grid>
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="software web"
+                data-search="e-clinic clinic saas software web next.js typescript supabase stripe api dental clinic dashboard system"
+              >
+                <div class="project-showcase-preview project-showcase-preview-brand">
+                  <img
+                    class="project-showcase-logo"
+                    src="assets/eclinic/logo-off.png"
+                    alt="E-Clinic logo"
+                  >
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Software + Web</span>
+                  <h3 class="project-showcase-name">E-Clinic</h3>
+                  <p class="project-showcase-desc">SaaS for dental clinics with scheduling, patient records, finance, permissions and integrations in one complete experience.</p>
+                  <div class="project-showcase-tags">
+                    <span>Next.js</span>
+                    <span>Supabase</span>
+                    <span>Stripe</span>
+                  </div>
+                  <a class="project-showcase-link" href="projetos/e-clinic.html">View project →</a>
+                </div>
+              </article>
+
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="software web automation"
+                data-search="mosquiteira internal management system company react vite express node sqlite pdfkit leaflet jwt quotes clients inventory schedule finance production map logistics"
+              >
+                <div class="project-showcase-preview project-showcase-preview-media">
+                  <img
+                    class="project-showcase-shot project-showcase-shot-main"
+                    src="assets/mosquiteira-sistema/painel.png"
+                    alt="Main dashboard of the Mosquiteira.com internal management system"
+                  >
+                  <img
+                    class="project-showcase-shot project-showcase-shot-overlay"
+                    src="assets/mosquiteira-sistema/dashboard-financeiro.png"
+                    alt="Financial dashboard of the Mosquiteira.com system"
+                  >
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Software + Operations</span>
+                  <h3 class="project-showcase-name">Mosquiteira.com System</h3>
+                  <p class="project-showcase-desc">Internal management system for clients, quotes, scheduling, logistics, inventory, finance and production with a mobile-first experience.</p>
+                  <div class="project-showcase-tags">
+                    <span>React</span>
+                    <span>Express</span>
+                    <span>SQLite</span>
+                  </div>
+                  <a class="project-showcase-link" href="projetos/sistema-mosquiteira.html">View project →</a>
+                </div>
+              </article>
+
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="web data"
+                data-search="interactive agrarian reform educational web data html css javascript informational page content digital visualization"
+              >
+                <div class="project-showcase-preview project-showcase-preview-brand">
+                  <img
+                    class="project-showcase-logo"
+                    src="assets/reforma-agraria/logo-wordmark.svg"
+                    alt="Interactive Agrarian Reform logo"
+                  >
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Web + Data</span>
+                  <h3 class="project-showcase-name">Interactive Agrarian Reform</h3>
+                  <p class="project-showcase-desc">Informational web project built to turn textual and statistical content into clear, accessible digital information.</p>
+                  <div class="project-showcase-tags">
+                    <span>HTML</span>
+                    <span>CSS</span>
+                    <span>Data</span>
+                  </div>
+                  <a class="project-showcase-link" href="projetos/reforma-agraria-interativa.html">View project →</a>
+                </div>
+              </article>
+
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="automation web"
+                data-search="quote automation web scripts whatsapp processes commercial flows productivity efficiency customer service"
+              >
+                <div class="project-showcase-preview project-showcase-preview-brand">
+                  <img
+                    class="project-showcase-logo"
+                    src="assets/automacao-orcamentos/03-logo-mosquiteira.png"
+                    alt="Mosquiteira.com logo"
+                  >
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Automation + Web</span>
+                  <h3 class="project-showcase-name">Quote Automation</h3>
+                  <p class="project-showcase-desc">Automated flow to generate and send quotes faster, with more standardization and commercial efficiency.</p>
+                  <div class="project-showcase-tags">
+                    <span>Scripts</span>
+                    <span>WhatsApp</span>
+                    <span>Flows</span>
+                  </div>
+                  <a class="project-showcase-link" href="projetos/automacao-de-orcamentos.html">View project →</a>
+                </div>
+              </article>
+
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="data web"
+                data-search="tax waivers santos data web dashboard transparency portal pandas chart.js benefits concentration"
+              >
+                <div class="project-showcase-preview project-showcase-preview-brand">
+                  <img
+                    class="project-showcase-logo"
+                    src="assets/analise-renuncias/04-logos-fontes.png"
+                    alt="Logos of public data sources used in the Santos tax waivers project"
+                  >
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Data + Web</span>
+                  <h3 class="project-showcase-name">Tax Waivers in Santos</h3>
+                  <p class="project-showcase-desc">Analytical dashboard about concentration, dominant sectors and benefit types among companies based in Santos.</p>
+                  <div class="project-showcase-tags">
+                    <span>Pandas</span>
+                    <span>Chart.js</span>
+                    <span>Dashboard</span>
+                  </div>
+                  <a class="project-showcase-link" href="projetos/analise-descritiva.html">View project →</a>
+                </div>
+              </article>
+
+              <article
+                class="project-showcase-card"
+                data-project-card
+                data-category="software web"
+                data-search="todo list tasks application app task manager productivity organization react software web coming soon"
+              >
+                <div class="project-showcase-preview preview-todo">
+                  <div class="project-preview-chrome">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="project-preview-todo">
+                    <svg class="preview-todo-icon" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#2f769d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="3" width="18" height="18" rx="3"/>
+                      <path d="M9 11l2 2 4-4"/>
+                      <line x1="9" y1="17" x2="15" y2="17" opacity="0.4"/>
+                    </svg>
+                    <div class="preview-todo-lines">
+                      <div class="preview-todo-item checked"></div>
+                      <div class="preview-todo-item"></div>
+                      <div class="preview-todo-item"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="project-showcase-content">
+                  <span class="project-showcase-type">Software + Web</span>
+                  <h3 class="project-showcase-name">To-Do List App <span class="badge-soon">Soon</span></h3>
+                  <p class="project-showcase-desc">Task management application with an intuitive interface to organize, prioritize and track daily activities.</p>
+                  <div class="project-showcase-tags">
+                    <span>React</span>
+                    <span>TypeScript</span>
+                    <span>Productivity</span>
+                  </div>
+                  <span class="project-showcase-link project-showcase-link--disabled">Coming soon →</span>
+                </div>
+              </article>
+            </div>
           </div>
-          <p class="project-desc">Informational web page built to turn textual and statistical content about agrarian reform into clear, accessible digital information.</p>
-          <div class="project-tags">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-            <span class="tag">JavaScript</span>
-          </div>
-          <a class="project-link" href="https://reformaagraria.eco.br" target="_blank" rel="noreferrer">View Project →</a>
-        </article>
+
+          <button class="project-gallery-nav" type="button" data-gallery-control="next" aria-label="Next projects">
+            <span aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <div class="project-gallery-footer">
+          <p class="project-gallery-count" data-project-count>Showing 1-3 of 6 projects</p>
+          <div class="project-gallery-pagination" data-project-pagination></div>
+        </div>
       </div>
     </div>
   </section>
@@ -296,6 +450,6 @@
     <p>© 2026 Victor Hugo Sanches. All rights reserved.</p>
   </footer>
 
-  <script src="scripts/portfolio.js"></script>
+  <script src="scripts/portfolio.js?v=20260630-en-carousel"></script>
 </body>
 </html>
