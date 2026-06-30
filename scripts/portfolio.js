@@ -555,10 +555,53 @@
     });
   }
 
+  function initCvModal() {
+    const modal = document.querySelector("[data-cv-modal]");
+    const openButtons = Array.from(document.querySelectorAll("[data-cv-open]"));
+    if (!modal || !openButtons.length) return;
+
+    const closeButtons = Array.from(modal.querySelectorAll("[data-cv-close]"));
+    const closeButton = modal.querySelector(".cv-modal-close");
+    let lastTrigger = null;
+
+    function openModal(trigger) {
+      lastTrigger = trigger;
+      modal.hidden = false;
+      document.body.classList.add("lightbox-open");
+      closeButton?.focus();
+    }
+
+    function closeModal() {
+      modal.hidden = true;
+      document.body.classList.remove("lightbox-open");
+      lastTrigger?.focus();
+    }
+
+    openButtons.forEach((button) => {
+      button.addEventListener("click", () => openModal(button));
+    });
+
+    closeButtons.forEach((button) => {
+      button.addEventListener("click", closeModal);
+    });
+
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (modal.hidden || event.key !== "Escape") return;
+      closeModal();
+    });
+  }
+
   initSectionNavigation();
   initRevealAnimations();
   initLegacyProjectCarousel();
   initProjectGallery();
   initProjectShotCarousel();
   initProjectImageLightbox();
+  initCvModal();
 })();

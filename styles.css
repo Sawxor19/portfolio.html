@@ -1277,13 +1277,17 @@ img {
   display: flex;
   align-items: center;
   gap: 14px;
+  width: 100%;
   padding: 20px 24px;
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
+  font-family: inherit;
   font-size: 0.92rem;
   font-weight: 500;
   color: var(--text-secondary);
+  text-align: left;
+  cursor: pointer;
   transition: all var(--transition);
 }
 
@@ -1302,6 +1306,125 @@ img {
 
 .contact-card:hover svg {
   color: #fff;
+}
+
+/* ===== CURRICULO MODAL ===== */
+.cv-modal[hidden] {
+  display: none;
+}
+
+.cv-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(9, 23, 35, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.cv-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  border: 0;
+  background: transparent;
+}
+
+.cv-modal-dialog {
+  position: relative;
+  z-index: 1;
+  width: min(980px, 100%);
+  height: min(88vh, 920px);
+  display: grid;
+  grid-template-rows: auto 1fr;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 24px;
+  background: #f8fbfd;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.32);
+}
+
+.cv-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.cv-modal-kicker {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--accent);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.cv-modal-header h2 {
+  color: var(--text);
+  font-size: 1.08rem;
+  line-height: 1.2;
+}
+
+.cv-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cv-modal-download,
+.cv-modal-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.cv-modal-download {
+  min-height: 42px;
+  padding: 10px 16px;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: #ffffff;
+  font-size: 0.86rem;
+}
+
+.cv-modal-download:hover,
+.cv-modal-download:focus-visible {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+}
+
+.cv-modal-close {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.cv-modal-close:hover,
+.cv-modal-close:focus-visible {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.cv-modal-frame {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #e7eef4;
 }
 
 /* ===== BOTTOM NAV ===== */
@@ -2688,6 +2811,29 @@ body.project-detail-page {
 
   .project-lightbox-image {
     max-height: calc(100vh - 150px);
+  }
+
+  .cv-modal {
+    padding: 12px;
+  }
+
+  .cv-modal-dialog {
+    height: calc(100dvh - 24px);
+    border-radius: 18px;
+  }
+
+  .cv-modal-header {
+    align-items: stretch;
+    flex-direction: column;
+    padding: 14px;
+  }
+
+  .cv-modal-actions {
+    justify-content: space-between;
+  }
+
+  .cv-modal-download {
+    flex: 1;
   }
 }
 
