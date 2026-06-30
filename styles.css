@@ -116,6 +116,7 @@ img {
 
 .hero-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 14px;
   margin-bottom: 36px;
 }
