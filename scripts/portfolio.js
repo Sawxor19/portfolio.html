@@ -7,7 +7,7 @@
   const initialHash = window.location.hash;
   const navigationEntry = performance.getEntriesByType?.("navigation")?.[0];
   const cameFromProjectDetail = document.referrer.includes("/projetos/");
-  const shouldStartAtTop = !initialHash || navigationEntry?.type === "reload" || !cameFromProjectDetail;
+  const shouldStartAtTop = !initialHash && (navigationEntry?.type === "reload" || !cameFromProjectDetail);
 
   if (shouldStartAtTop) {
     if (initialHash && "replaceState" in history) {
@@ -47,7 +47,7 @@
     function updateActiveLink() {
       if (!navLinks.length || !sections.length) return;
 
-      const scrollY = window.scrollY + 120;
+      const scrollY = window.scrollY + 140;
       let current = sections[0]?.id || "";
 
       for (const section of sections) {
@@ -66,11 +66,32 @@
   }
 
   function initRevealAnimations() {
-    if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll(".section, .hero").forEach((element) => {
-        element.style.opacity = "1";
-        element.style.transform = "translateY(0)";
-      });
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const revealSelectors = [
+      ".hero",
+      ".hero-content > *",
+      ".hero-image",
+      ".section-title",
+      ".about-text",
+      ".highlight-card",
+      ".academic-matrix-head",
+      ".academic-card",
+      ".project-showcase-head",
+      ".project-showcase-toolbar",
+      "[data-project-card]",
+      ".skill-category",
+      ".contact-intro",
+      ".contact-card",
+    ];
+    const elements = Array.from(new Set(document.querySelectorAll(revealSelectors.join(","))));
+
+    elements.forEach((element, index) => {
+      element.classList.add("reveal-item");
+      element.style.setProperty("--reveal-delay", `${Math.min(index % 6, 5) * 55}ms`);
+    });
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      elements.forEach((element) => element.classList.add("is-visible"));
       return;
     }
 
@@ -78,26 +99,105 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.14, rootMargin: "0px 0px -8% 0px" }
     );
 
-    document.querySelectorAll(".section, .hero").forEach((element) => {
-      element.style.opacity = "0";
-      element.style.transform = "translateY(20px)";
-      element.style.transition = "opacity 0.6s ease, transform 0.6s ease";
-      observer.observe(element);
+    elements.forEach((element) => observer.observe(element));
+    document.querySelector(".hero")?.classList.add("is-visible");
+  }
+
+  function initScrollMotion() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
+
+    const movingElements = Array.from(document.querySelectorAll(".hero-image, .hero-badge, [data-project-card]"));
+    if (!movingElements.length) return;
+
+    let ticking = false;
+
+    movingElements.forEach((element) => {
+      element.classList.add("scroll-motion");
     });
 
-    const hero = document.querySelector(".hero");
-    if (hero) {
-      hero.style.opacity = "1";
-      hero.style.transform = "translateY(0)";
+    function updateMotion() {
+      const viewportHeight = window.innerHeight || 1;
+
+      movingElements.forEach((element, index) => {
+        const rect = element.getBoundingClientRect();
+        const progress = (rect.top + rect.height / 2 - viewportHeight / 2) / viewportHeight;
+        const depth = element.matches(".hero-image") ? -34 : element.matches(".hero-badge") ? -18 : 18 + (index % 3) * 5;
+        const shift = Math.max(-34, Math.min(34, progress * depth));
+
+        element.style.setProperty("--scroll-shift", `${shift.toFixed(2)}px`);
+      });
+
+      ticking = false;
     }
+
+    function requestMotionUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateMotion);
+    }
+
+    window.addEventListener("scroll", requestMotionUpdate, { passive: true });
+    window.addEventListener("resize", requestMotionUpdate);
+    updateMotion();
+  }
+
+  function initSectionCarousel() {
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const slides = Array.from(document.querySelectorAll("body:not(.project-detail-page) .hero, body:not(.project-detail-page) .section"));
+    if (!slides.length) return;
+
+    slides.forEach((slide) => slide.classList.add("page-slide"));
+
+    if (reduceMotion || !("IntersectionObserver" in window)) {
+      slides.forEach((slide) => slide.classList.add("is-slide-active"));
+      return;
+    }
+
+    document.documentElement.classList.add("section-carousel-enabled");
+
+    let ticking = false;
+
+    function setActiveSlide() {
+      const viewportCenter = window.innerHeight / 2;
+      let activeSlide = slides[0];
+      let activeDistance = Number.POSITIVE_INFINITY;
+
+      slides.forEach((slide) => {
+        const rect = slide.getBoundingClientRect();
+        const slideCenter = rect.top + rect.height / 2;
+        const distance = Math.abs(slideCenter - viewportCenter);
+
+        if (distance < activeDistance) {
+          activeDistance = distance;
+          activeSlide = slide;
+        }
+      });
+
+      slides.forEach((slide) => {
+        slide.classList.toggle("is-slide-active", slide === activeSlide);
+      });
+
+      ticking = false;
+    }
+
+    function requestActiveSlideUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(setActiveSlide);
+    }
+
+    window.addEventListener("scroll", requestActiveSlideUpdate, { passive: true });
+    window.addEventListener("resize", requestActiveSlideUpdate);
+    setActiveSlide();
   }
 
   function initLegacyProjectCarousel() {
@@ -601,10 +701,21 @@
   }
 
   initSectionNavigation();
+  initSectionCarousel();
   initRevealAnimations();
+  initScrollMotion();
   initLegacyProjectCarousel();
   initProjectGallery();
   initProjectShotCarousel();
   initProjectImageLightbox();
   initCvModal();
+
+  if (initialHash) {
+    const initialTarget = document.getElementById(initialHash.slice(1));
+    if (initialTarget) {
+      window.requestAnimationFrame(() => {
+        initialTarget.scrollIntoView({ behavior: "auto", block: "start" });
+      });
+    }
+  }
 })();

@@ -1,4 +1,4 @@
-﻿# Portfólio de Victor Hugo Sanches
+# hictorvugo.com.br
 
 Olá! 👋 Bem-vindo ao meu portfólio online. Aqui você encontra informações sobre mim, meus projetos, skills e contatos.
 
@@ -38,7 +38,7 @@ Meu projeto mais recente é o **E‑Clinic**, um SaaS para clínicas odontológi
 ---
 
 ## Link do Portfólio Online
-Acesse meu site: **[Victor Hugo Sanches — Portfólio](https://sawxor19.github.io/portfolio.html/)**
+Acesse meu site: **[hictorvugo.com.br](https://hictorvugo.com.br/)**
 
 ---
 
