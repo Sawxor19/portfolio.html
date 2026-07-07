@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200, height=630">
+  <title>Open Graph Preview - Victor Hugo Sanches</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #fbfdfc;
+      --text: #183247;
+      --text-secondary: #486579;
+      --text-muted: #73889a;
+      --accent: #287c8e;
+      --accent-dark: #1e5e6d;
+      --accent-soft: #dff1ed;
+      --accent-warm: #d49a44;
+      --accent-green: #4f8f72;
+      --border: #d8e5e0;
+      --shadow-lg: 0 24px 70px rgba(24, 50, 71, 0.16);
+      --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      --font-display: "Playfair Display", Georgia, serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+    }
+
+    body {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        linear-gradient(90deg, rgba(40, 124, 142, 0.04) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(79, 143, 114, 0.035) 1px, transparent 1px),
+        linear-gradient(115deg, rgba(255, 255, 255, 0.96) 0 28%, rgba(224, 248, 239, 0.68) 28% 66%, rgba(237, 249, 255, 0.82) 66% 100%);
+      background-size: 92px 92px, 92px 92px, auto;
+    }
+
+    .og-frame {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      align-items: center;
+      gap: 64px;
+      width: 1088px;
+      height: 518px;
+      padding: 34px 28px 34px 54px;
+    }
+
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .brand-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      box-shadow: 0 16px 34px rgba(24, 50, 71, 0.12);
+    }
+
+    .brand-copy {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-name {
+      font-size: 18px;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .brand-url {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1;
+      text-transform: uppercase;
+    }
+
+    .title {
+      max-width: 640px;
+      color: #142c3f;
+      font-size: 70px;
+      font-weight: 800;
+      letter-spacing: 0;
+      line-height: 0.98;
+    }
+
+    .title em {
+      color: var(--accent);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .description {
+      max-width: 560px;
+      margin-top: 26px;
+      color: var(--text-secondary);
+      font-size: 24px;
+      line-height: 1.42;
+    }
+
+    .note {
+      margin-top: 10px;
+      color: var(--accent);
+      font-size: 21px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 8px 16px;
+      border: 1px solid rgba(40, 124, 142, 0.16);
+      border-radius: 999px;
+      color: var(--accent-dark);
+      background: rgba(255, 255, 255, 0.68);
+      font-size: 14px;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(24, 50, 71, 0.06);
+    }
+
+    .media {
+      position: relative;
+      width: 380px;
+      min-height: 430px;
+    }
+
+    .photo-wrap {
+      position: absolute;
+      top: 24px;
+      right: 34px;
+      width: 314px;
+      height: 314px;
+      overflow: hidden;
+      border: 8px solid rgba(255, 255, 255, 0.86);
+      border-radius: 24px;
+      box-shadow: var(--shadow-lg);
+      transform: rotate(2deg);
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transform: scale(1.04);
+    }
+
+    .badge {
+      position: absolute;
+      right: 0;
+      bottom: 60px;
+      width: 142px;
+      padding: 16px 18px;
+      border: 1px solid rgba(40, 124, 142, 0.18);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-lg);
+      text-align: center;
+    }
+
+    .badge-number {
+      display: block;
+      color: var(--accent);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .badge-text {
+      display: block;
+      margin-top: 6px;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.28;
+    }
+
+    .accent-line {
+      position: absolute;
+      right: 56px;
+      bottom: 36px;
+      width: 220px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-green));
+    }
+  </style>
+</head>
+<body>
+  <main class="og-frame" aria-label="Prévia do portfólio de Victor Hugo Sanches">
+    <section>
+      <div class="brand-row">
+        <img class="brand-mark" src="assets/brand/vhs-logo-mark.png" alt="">
+        <div class="brand-copy">
+          <strong class="brand-name">Victor Hugo Sanches</strong>
+          <span class="brand-url">hictorvugo.com.br</span>
+        </div>
+      </div>
+
+      <span class="label">Software Engineering Fullstack</span>
+      <h1 class="title">Desenvolvedor<br><em>Full-Stack</em></h1>
+      <p class="description">Estudante de Ciência de Dados com experiência prática construindo sistemas reais.</p>
+      <p class="note">Foco em dados, automação e eficiência.</p>
+
+      <div class="tags" aria-label="Tecnologias">
+        <span class="tag">Next.js</span>
+        <span class="tag">React</span>
+        <span class="tag">TypeScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">Supabase</span>
+      </div>
+    </section>
+
+    <aside class="media" aria-label="Foto e destaques">
+      <div class="photo-wrap">
+        <img src="image0.jpeg" alt="Victor Hugo Sanches">
+      </div>
+
+      <div class="badge">
+        <span class="badge-number">2+</span>
+        <span class="badge-text">Anos de<br>Experiência</span>
+      </div>
+
+    </aside>
+
+    <div class="accent-line" aria-hidden="true"></div>
+  </main>
+</body>
+</html>

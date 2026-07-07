@@ -42,16 +42,4 @@ Acesse meu site: **[hictorvugo.com.br](https://hictorvugo.com.br/)**
 
 ---
 
-## PDF Interativo
-Para gerar os PDFs interativos em português e inglês:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File .\scripts\export-pdf.ps1
-```
-
-Os arquivos são exportados para a pasta `pdf/` com links clicáveis para projetos, e-mail, telefone, LinkedIn e GitHub.
-Se necessário, o script instala automaticamente a dependência `pypdf` para unir as páginas exportadas.
-
----
-
 **Desenvolvido com HTML/CSS/JS**

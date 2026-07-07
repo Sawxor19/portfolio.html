@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "generate:og": "node generate-og.js"
+  },
+  "dependencies": {
+    "puppeteer": "^25.3.0"
+  }
+}

@@ -10,9 +10,6 @@
   const shouldStartAtTop = !initialHash && (navigationEntry?.type === "reload" || !cameFromProjectDetail);
 
   if (shouldStartAtTop) {
-    if (initialHash && "replaceState" in history) {
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }
     window.scrollTo(0, 0);
   }
 
@@ -198,84 +195,6 @@
     window.addEventListener("scroll", requestActiveSlideUpdate, { passive: true });
     window.addEventListener("resize", requestActiveSlideUpdate);
     setActiveSlide();
-  }
-
-  function initLegacyProjectCarousel() {
-    const carousel = document.querySelector("[data-project-carousel]");
-    if (!carousel) return;
-
-    const track = carousel.querySelector(".project-grid");
-    const cards = Array.from(carousel.querySelectorAll(".project-card"));
-    const prevButton = document.querySelector('[data-carousel-control="prev"]');
-    const nextButton = document.querySelector('[data-carousel-control="next"]');
-    const currentLabel = carousel.querySelector("[data-carousel-current]");
-    const totalLabel = carousel.querySelector("[data-carousel-total]");
-
-    if (!track || !cards.length || !prevButton || !nextButton || !currentLabel || !totalLabel) {
-      return;
-    }
-
-    totalLabel.textContent = String(cards.length).padStart(2, "0");
-
-    let currentIndex = 0;
-    let scrollTimer = null;
-
-    function updateCarouselUI() {
-      currentLabel.textContent = String(currentIndex + 1).padStart(2, "0");
-      prevButton.disabled = currentIndex === 0;
-      nextButton.disabled = currentIndex === cards.length - 1;
-
-      cards.forEach((card, index) => {
-        card.classList.toggle("is-active", index === currentIndex);
-      });
-    }
-
-    function scrollToCard(index) {
-      currentIndex = Math.max(0, Math.min(index, cards.length - 1));
-      track.scrollTo({
-        left: cards[currentIndex].offsetLeft,
-        behavior: "smooth",
-      });
-      updateCarouselUI();
-    }
-
-    function syncCarouselFromScroll() {
-      const closestIndex = cards.reduce((bestIndex, card, index) => {
-        const bestDistance = Math.abs(cards[bestIndex].offsetLeft - track.scrollLeft);
-        const currentDistance = Math.abs(card.offsetLeft - track.scrollLeft);
-        return currentDistance < bestDistance ? index : bestIndex;
-      }, 0);
-
-      currentIndex = closestIndex;
-      updateCarouselUI();
-    }
-
-    prevButton.addEventListener("click", () => scrollToCard(currentIndex - 1));
-    nextButton.addEventListener("click", () => scrollToCard(currentIndex + 1));
-
-    track.addEventListener(
-      "scroll",
-      () => {
-        window.clearTimeout(scrollTimer);
-        scrollTimer = window.setTimeout(syncCarouselFromScroll, 80);
-      },
-      { passive: true }
-    );
-
-    track.addEventListener("keydown", (event) => {
-      if (event.key === "ArrowLeft") {
-        event.preventDefault();
-        scrollToCard(currentIndex - 1);
-      }
-
-      if (event.key === "ArrowRight") {
-        event.preventDefault();
-        scrollToCard(currentIndex + 1);
-      }
-    });
-
-    window.addEventListener("resize", () => scrollToCard(currentIndex));
-    updateCarouselUI();
   }
 
   function initProjectGallery() {
@@ -704,7 +623,6 @@
   initSectionCarousel();
   initRevealAnimations();
   initScrollMotion();
-  initLegacyProjectCarousel();
   initProjectGallery();
   initProjectShotCarousel();
   initProjectImageLightbox();
