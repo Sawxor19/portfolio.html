@@ -1922,6 +1922,109 @@ body:not(.project-detail-page) .section.page-slide.is-slide-active::before {
   transform: translate3d(0, calc(var(--scroll-shift, 0px) - 8px), 0) rotate(var(--scroll-tilt, 0deg));
 }
 
+/* Compact project slide so it fits inside the vertical section carousel. */
+body:not(.project-detail-page) #projetos.section.page-slide {
+  padding-top: 72px;
+  padding-bottom: 42px;
+}
+
+body:not(.project-detail-page) #projetos .section-inner {
+  max-width: 1120px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-shell {
+  padding: 20px 34px 18px;
+  border-radius: 24px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-head {
+  margin-bottom: 14px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-breadcrumb {
+  margin-bottom: 8px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-title {
+  margin-bottom: 6px;
+  font-size: clamp(1.75rem, 3vw, 2.45rem);
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-intro {
+  max-width: 560px;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-toolbar {
+  margin-bottom: 14px;
+}
+
+body:not(.project-detail-page) #projetos .project-search-field input {
+  height: 46px;
+}
+
+body:not(.project-detail-page) #projetos .project-gallery-layout {
+  gap: 14px;
+}
+
+body:not(.project-detail-page) #projetos .project-gallery-nav {
+  width: 48px;
+  height: 48px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-preview {
+  height: 118px;
+  min-height: 118px;
+  padding: 10px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-logo {
+  max-height: 96px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-shot-overlay {
+  min-width: 86px;
+  max-width: 118px;
+  right: 16px;
+  bottom: 12px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-content {
+  gap: 7px;
+  padding: 14px 16px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-name {
+  font-size: 0.96rem;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-desc {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+body:not(.project-detail-page) #projetos .project-gallery-grid {
+  padding-bottom: 2px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-tags {
+  gap: 6px;
+}
+
+body:not(.project-detail-page) #projetos .project-showcase-tags span {
+  padding: 4px 8px;
+  font-size: 0.7rem;
+}
+
+body:not(.project-detail-page) #projetos .project-gallery-footer {
+  margin-top: 14px;
+}
+
 /* ===== ANIMATIONS ===== */
 @keyframes ambientGradient {
   0% {
