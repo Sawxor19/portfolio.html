@@ -3,25 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Flyer Educativo | Victor Hugo Sanches</title>
+  <title>Flyer Educativo | www.hictorvugo.com.br</title>
+  <meta name="description" content="Projeto de comunicação visual educativa com hierarquia de informação, leitura rápida e clareza de mensagem.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css?v=20260324-project-pages">
+  <link rel="stylesheet" href="../css/foundation.css?v=20260720-project-logic">
+  <link rel="stylesheet" href="../css/portfolio.css?v=20260720-project-logic">
+  <link rel="stylesheet" href="../css/project-detail.css?v=20260720-project-copy">
 </head>
 <body class="project-detail-page">
   <main class="project-detail-shell">
-    <div class="project-detail-topbar">
-      <a class="project-detail-back" href="../index.html#projetos">← Voltar para projetos</a>
-      <a class="project-detail-contact" href="../index.html#contato">Fale comigo</a>
-    </div>
-
     <section class="project-detail-hero">
-      <div class="project-detail-breadcrumb">
+      <nav class="project-detail-breadcrumb" aria-label="Navegação estrutural">
         <span>Projetos</span>
         <span>/</span>
         <span>Flyer Educativo</span>
-      </div>
+      </nav>
       <div class="project-detail-kicker">Tópico 05</div>
       <h1 class="project-detail-title">Flyer Educativo</h1>
       <p class="project-detail-summary">
@@ -34,17 +32,17 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section project-detail-content" aria-label="Detalhes do projeto">
       <div class="project-detail-layout">
-        <div class="project-detail-column">
+        <div class="project-detail-column project-detail-main">
           <article class="detail-card">
-            <h2 class="detail-card-title">Visão geral</h2>
+            <h2 class="detail-card-title" data-project-role="overview">Visão geral</h2>
             <p>O flyer educativo nasce da necessidade de simplificar um conteúdo e apresentá-lo de maneira visual, objetiva e fácil de assimilar.</p>
             <p>Nesse tipo de trabalho, a organização da informação tem o mesmo peso que o design: o material precisa chamar atenção, mas também precisa ser entendido rapidamente.</p>
           </article>
 
           <article class="detail-card">
-            <h2 class="detail-card-title">Componentes do projeto</h2>
+            <h2 class="detail-card-title" data-project-role="delivery">Componentes do projeto</h2>
             <ul class="detail-list">
               <li>Definição da mensagem principal e do público de leitura.</li>
               <li>Hierarquia visual para destacar o que é mais importante.</li>
@@ -54,9 +52,9 @@
           </article>
         </div>
 
-        <div class="project-detail-column">
+        <div class="project-detail-column project-detail-aside">
           <article class="detail-card">
-            <h2 class="detail-card-title">Competências aplicadas</h2>
+            <h2 class="detail-card-title" data-project-role="stack">Competências aplicadas</h2>
             <div class="detail-stack">
               <span>Design</span>
               <span>Comunicação Visual</span>
@@ -67,7 +65,7 @@
           </article>
 
           <article class="detail-card">
-            <h2 class="detail-card-title">Pontos de valor</h2>
+            <h2 class="detail-card-title" data-project-role="value">Pontos de valor</h2>
             <div class="detail-highlight-list">
               <div class="detail-highlight-item">
                 <strong>Mensagem direta</strong>
@@ -92,10 +90,10 @@
       <div class="detail-related">
         <h2 class="detail-card-title">Outros tópicos</h2>
         <div class="detail-related-grid">
-          <a class="detail-related-link" href="e-clinic.html">E-Clinic</a>
-          <a class="detail-related-link" href="reforma-agraria-interativa.html">Reforma Agrária Educativa</a>
-          <a class="detail-related-link" href="automacao-de-orcamentos.html">Automação de Orçamentos</a>
-          <a class="detail-related-link" href="analise-descritiva.html">Renúncias Fiscais em Santos</a>
+          <a class="detail-related-link" href="/e-clinic">E-Clinic</a>
+          <a class="detail-related-link" href="/reformaagraria">Reforma Agrária Educativa</a>
+          <a class="detail-related-link" href="/orçamentos">Automação de Orçamentos</a>
+          <a class="detail-related-link" href="/renunciasfiscais">Renúncias Fiscais em Santos</a>
         </div>
       </div>
     </section>
@@ -105,6 +103,6 @@
     </footer>
   </main>
 
-  <script src="../scripts/portfolio.js"></script>
+  <script src="../scripts/portfolio.js?v=20260720-compact-gallery" defer></script>
 </body>
 </html>

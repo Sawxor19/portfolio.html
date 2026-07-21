@@ -1,45 +1,41 @@
-# hictorvugo.com.br
+# www.hictorvugo.com.br
 
-Olá! 👋 Bem-vindo ao meu portfólio online. Aqui você encontra informações sobre mim, meus projetos, skills e contatos.
+Portfólio estático bilíngue de Victor Hugo Sanches, publicado em
+[www.hictorvugo.com.br](https://www.hictorvugo.com.br/).
 
----
+## Estrutura
 
-## Sobre mim
-Meu nome é **Victor Hugo Sanches**, tenho 26 anos e sou estudante de **Ciência de Dados** na **Universidade Santa Cecília** (Santos/SP).
-Atualmente atuo como **desenvolvedor full stack** com foco em produtos digitais e dados. 
-Meu projeto mais recente é o **E‑Clinic**, um SaaS para clínicas odontológicas com Next.js, TypeScript, Supabase e Stripe.
+- `index.html`: página principal em português.
+- `index-en.html`: página principal em inglês.
+- `projetos/`: páginas detalhadas dos projetos.
+- `assets/`: imagens, identidade visual e currículo.
+- `scripts/portfolio.js`: interações, galerias e diálogos compartilhados.
+- `styles.css`: ponto de entrada dos estilos.
+- `css/foundation.css`: variáveis, reset e componentes estruturais.
+- `css/portfolio.css`: home, galeria, navegação, animações e responsividade.
+- `css/project-detail.css`: páginas internas, carrossel de telas e lightbox.
 
----
+Os imports de `styles.css` devem permanecer na ordem atual, pois cada camada
+refina a anterior pela cascata.
 
-## Projetos
-- **[E-Clinic — SaaS para clínicas odontológicas](https://e-clinic-br.vercel.app)** — Next.js (App Router), TypeScript, Supabase, Stripe, RBAC e deploy na Vercel.
-- **[Sistema de Orçamento Automatizado](https://github.com/Mosquiteira/orcamento)** — Automação em HTML, CSS e JavaScript para gerar orçamentos via WhatsApp.
-- **[Reforma Agrária Educativa](https://reformaagraria.eco.br)** — Web app educativo com visualização de dados.
-- **[Renúncias Fiscais em Santos](https://sawxor19.github.io/RENUNCIAS_FISCAIS_SANTOS_SP/dashboard_renuncias_santos.html)** — Dashboard exploratório com leitura de concentração, setores e tipos de benefício.
+## Desenvolvimento
 
----
+O site não exige compilação. Abra `index.html` diretamente ou sirva a pasta com
+um servidor HTTP local:
 
-## Skills
-- **Next.js**, **React**, **TypeScript**
-- **Node.js**, **Supabase**, **Stripe**
-- **Tailwind CSS**, **HTML**, **CSS**, **JavaScript**
-- **Python**, **SQL**, **Estatística**
-- **Integrações e automações**
-- **Comunicação e trabalho em equipe**
+```powershell
+python -m http.server 8000
+```
 
----
+Para gerar novamente a imagem de compartilhamento social:
+
+```powershell
+npm ci
+npm run generate:og
+```
 
 ## Contato
-- 📧 Email: [sawxor@icloud.com](mailto:sawxor@icloud.com)
-- 📞 Telefone: +55 (13) 99666-7776
-- 🔗 [LinkedIn](https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/)
-- 💻 [GitHub](https://github.com/Sawxor19)
 
----
-
-## Link do Portfólio Online
-Acesse meu site: **[hictorvugo.com.br](https://hictorvugo.com.br/)**
-
----
-
-**Desenvolvido com HTML/CSS/JS**
+- [Email](mailto:sawxor@icloud.com)
+- [LinkedIn](https://www.linkedin.com/in/victor-hugo-sanches-4a6716290/)
+- [GitHub](https://github.com/Sawxor19)
