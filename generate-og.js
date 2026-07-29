@@ -30,10 +30,10 @@ try {
   });
   
   await page.screenshot({
-    path: path.join(__dirname, 'og-image-v2.png'),
+    path: path.join(__dirname, 'og-image-v3.png'),
     clip: { x: 0, y: 0, width: 1200, height: 630 }
   });
   
   await browser.close();
-  console.log('OG image saved as og-image-v2.png');
+  console.log('OG image saved as og-image-v3.png');
 })();
