@@ -1,6 +1,7 @@
 (() => {
   const prefersReducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isProjectDetailPage = document.body?.classList.contains("project-detail-page");
+  const pageIsEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
 
   // Prevent browser from restoring previous scroll position
   if (!isProjectDetailPage && "scrollRestoration" in history) {
@@ -97,25 +98,25 @@
 
     const nav = document.createElement("nav");
     nav.className = "bottom-nav project-navbar";
-    nav.setAttribute("aria-label", "Navegação principal");
+    nav.setAttribute("aria-label", pageIsEnglish ? "Main navigation" : "Navegação principal");
     nav.innerHTML = `
       <div class="nav-inner">
-        <a class="nav-brand" href="/index.html#inicio" aria-label="www.hictorvugo.com.br — início">
+        <a class="nav-brand" href="${pageIsEnglish ? "/index-en.html#home" : "/index.html#inicio"}" aria-label="${pageIsEnglish ? "www.hictorvugo.com.br — home" : "www.hictorvugo.com.br — início"}">
           <img class="nav-logo" src="/assets/brand/vhs-logo-mark.png" alt="" aria-hidden="true" width="512" height="512" decoding="async">
           <span>www.hictorvugo.com.br</span>
         </a>
         <div class="nav-separator"></div>
         <div class="nav-links">
-          <a href="/index.html#inicio">Início</a>
-          <a href="/index.html#sobre">Sobre</a>
-          <a href="/index.html#formacao">Formação</a>
-          <a class="active" href="/index.html#projetos" aria-current="page">Projetos</a>
-          <a href="/index.html#skills">Skills</a>
-          <a href="/index.html#contato">Contato</a>
+          <a href="${pageIsEnglish ? "/index-en.html#home" : "/index.html#inicio"}">${pageIsEnglish ? "Home" : "Início"}</a>
+          <a href="${pageIsEnglish ? "/index-en.html#about" : "/index.html#sobre"}">${pageIsEnglish ? "About" : "Sobre"}</a>
+          <a href="${pageIsEnglish ? "/index-en.html#education" : "/index.html#formacao"}">${pageIsEnglish ? "Education" : "Formação"}</a>
+          <a class="active" href="${pageIsEnglish ? "/index-en.html#projects" : "/index.html#projetos"}" aria-current="page">${pageIsEnglish ? "Projects" : "Projetos"}</a>
+          <a href="${pageIsEnglish ? "/index-en.html#skills" : "/index.html#skills"}">Skills</a>
+          <a href="${pageIsEnglish ? "/index-en.html#contact" : "/index.html#contato"}">${pageIsEnglish ? "Contact" : "Contato"}</a>
         </div>
         <div class="nav-separator"></div>
-        <a class="nav-cta" href="/index-en.html#projects">EN</a>
-        <a class="nav-cta nav-cta-primary" href="/index.html#contato">FALE COMIGO</a>
+        <a class="nav-cta" href="${pageIsEnglish ? window.location.pathname.replace(/index-en\.html$/, "") : `${window.location.pathname.replace(/index\.html$/, "").replace(/\/$/, "")}/index-en.html`}">${pageIsEnglish ? "PT" : "EN"}</a>
+        <a class="nav-cta nav-cta-primary" href="${pageIsEnglish ? "/index-en.html#contact" : "/index.html#contato"}">${pageIsEnglish ? "LET'S TALK" : "FALE COMIGO"}</a>
       </div>
     `;
 
@@ -298,7 +299,7 @@
     const carousels = Array.from(document.querySelectorAll("[data-project-shot-carousel]"));
     if (!carousels.length) return;
 
-    const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
+    const isEnglish = pageIsEnglish;
 
     carousels.forEach((carousel, carouselIndex) => {
       const track = carousel.querySelector("[data-project-shot-track]");
@@ -452,14 +453,14 @@
     lightbox.className = "project-lightbox";
     lightbox.hidden = true;
     lightbox.innerHTML = `
-      <button class="project-lightbox-backdrop" type="button" aria-label="Fechar visualizacao ampliada"></button>
-      <div class="project-lightbox-dialog" role="dialog" aria-modal="true" aria-label="Imagem ampliada do projeto">
+      <button class="project-lightbox-backdrop" type="button" aria-label="${pageIsEnglish ? "Close enlarged view" : "Fechar visualização ampliada"}"></button>
+      <div class="project-lightbox-dialog" role="dialog" aria-modal="true" aria-label="${pageIsEnglish ? "Enlarged project image" : "Imagem ampliada do projeto"}">
         <div class="project-lightbox-header">
           <span class="project-lightbox-counter"></span>
           <div class="project-lightbox-controls">
-            <button class="project-lightbox-nav project-lightbox-nav-prev" type="button" aria-label="Imagem anterior">&larr;</button>
-            <button class="project-lightbox-nav project-lightbox-nav-next" type="button" aria-label="Proxima imagem">&rarr;</button>
-            <button class="project-lightbox-close" type="button" aria-label="Fechar imagem">&times;</button>
+            <button class="project-lightbox-nav project-lightbox-nav-prev" type="button" aria-label="${pageIsEnglish ? "Previous image" : "Imagem anterior"}">&larr;</button>
+            <button class="project-lightbox-nav project-lightbox-nav-next" type="button" aria-label="${pageIsEnglish ? "Next image" : "Próxima imagem"}">&rarr;</button>
+            <button class="project-lightbox-close" type="button" aria-label="${pageIsEnglish ? "Close image" : "Fechar imagem"}">&times;</button>
           </div>
         </div>
         <figure class="project-lightbox-figure">
@@ -491,7 +492,7 @@
       if (!image || !lightboxImage || !lightboxCaption) return;
 
       lightboxImage.src = image.currentSrc || image.src;
-      lightboxImage.alt = image.alt || "Imagem ampliada do projeto";
+      lightboxImage.alt = image.alt || (pageIsEnglish ? "Enlarged project image" : "Imagem ampliada do projeto");
       lightboxCaption.textContent = caption?.textContent?.trim() || image.alt || "";
 
       if (lightboxCounter) {
@@ -537,8 +538,13 @@
       const button = document.createElement("button");
       button.type = "button";
       button.className = "project-shot-expand";
-      button.textContent = "Abrir 100%";
-      button.setAttribute("aria-label", `Abrir ${image.alt || "imagem"} em tamanho completo`);
+      button.textContent = pageIsEnglish ? "Open full size" : "Abrir 100%";
+      button.setAttribute(
+        "aria-label",
+        pageIsEnglish
+          ? `Open ${image.alt || "image"} at full size`
+          : `Abrir ${image.alt || "imagem"} em tamanho completo`
+      );
       button.addEventListener("click", (event) => {
         event.stopPropagation();
         openLightbox(index, button);
@@ -646,7 +652,7 @@
         const sectionNames = cards
           .map((card) => card.querySelector(".detail-card-title")?.textContent?.trim())
           .filter(Boolean);
-        if (sectionNames.length) box.setAttribute("aria-label", sectionNames.join(" e "));
+        if (sectionNames.length) box.setAttribute("aria-label", sectionNames.join(pageIsEnglish ? " and " : " e "));
         return box;
       };
 
