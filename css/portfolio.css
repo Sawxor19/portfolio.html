@@ -819,12 +819,6 @@ body:not(.project-detail-page) .hero-photo-wrapper img {
   transform: scale(1.04);
 }
 
-body:not(.project-detail-page) .hero-image.scroll-motion,
-body:not(.project-detail-page) .hero-badge.scroll-motion {
-  translate: 0 var(--scroll-shift, 0px);
-  will-change: translate;
-}
-
 body:not(.project-detail-page) .hero-badge {
   right: -24px;
   bottom: 26px;
@@ -873,79 +867,6 @@ body:not(.project-detail-page) .btn {
 
 .section {
   position: relative;
-}
-
-.section-carousel-enabled {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 0;
-}
-
-body:not(.project-detail-page) .page-slide {
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
-}
-
-body:not(.project-detail-page) .section.page-slide {
-  display: flex;
-  align-items: center;
-  min-height: 100svh;
-  padding-top: 94px;
-  padding-bottom: 58px;
-}
-
-body:not(.project-detail-page) .page-slide > .section-inner,
-body:not(.project-detail-page) .hero-content,
-body:not(.project-detail-page) .hero-image {
-  transition:
-    opacity 0.5s ease,
-    transform 0.65s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.5s ease;
-}
-
-body:not(.project-detail-page) .page-slide:not(.is-slide-active) > .section-inner {
-  opacity: 0;
-  filter: blur(10px) saturate(0.86);
-  pointer-events: none;
-  transform: translate3d(0, 32px, 0) scale(0.965);
-}
-
-body:not(.project-detail-page) .hero.page-slide:not(.is-slide-active) .hero-content,
-body:not(.project-detail-page) .hero.page-slide:not(.is-slide-active) .hero-image {
-  opacity: 0;
-  filter: blur(10px) saturate(0.86);
-  pointer-events: none;
-  transform: translate3d(0, 32px, 0) scale(0.965);
-}
-
-body:not(.project-detail-page) .page-slide.is-slide-active > .section-inner,
-body:not(.project-detail-page) .hero.page-slide.is-slide-active .hero-content,
-body:not(.project-detail-page) .hero.page-slide.is-slide-active .hero-image {
-  opacity: 1;
-  filter: saturate(1);
-  transform: translate3d(0, 0, 0) scale(1);
-}
-
-body:not(.project-detail-page) .section.page-slide > .section-inner {
-  width: 100%;
-}
-
-body:not(.project-detail-page) .section.page-slide::before {
-  content: "";
-  position: absolute;
-  inset: 24px 32px;
-  z-index: -1;
-  border: 1px solid rgba(24, 50, 71, 0.055);
-  border-radius: 30px;
-  background: rgba(255, 255, 255, 0.22);
-  opacity: 0;
-  transform: scale(0.985);
-  transition: opacity 0.5s ease, transform 0.65s ease;
-  pointer-events: none;
-}
-
-body:not(.project-detail-page) .section.page-slide.is-slide-active::before {
-  opacity: 1;
-  transform: scale(1);
 }
 
 .section-alt {
@@ -1392,12 +1313,6 @@ body:not(.project-detail-page) .section.page-slide.is-slide-active::before {
   transform: translate3d(0, calc(var(--scroll-shift, 0px) - 8px), 0) rotate(var(--scroll-tilt, 0deg));
 }
 
-/* Compact project slide so it fits inside the vertical section carousel. */
-body:not(.project-detail-page) :is(#projetos, #projects).section.page-slide {
-  padding-top: 72px;
-  padding-bottom: 42px;
-}
-
 body:not(.project-detail-page) :is(#projetos, #projects) .section-inner {
   max-width: 1120px;
 }
@@ -1841,10 +1756,6 @@ body:not(.project-detail-page) :is(#projetos, #projects) .project-gallery-footer
   --pointer-y: 32vh;
 }
 
-html.section-carousel-enabled {
-  scroll-snap-type: y proximity;
-}
-
 body:not(.project-detail-page) {
   background: #fffaf3;
 }
@@ -1858,96 +1769,6 @@ body:not(.project-detail-page)::after {
   background:
     radial-gradient(520px circle at var(--pointer-x) var(--pointer-y), rgba(217, 162, 77, 0.11), transparent 66%),
     radial-gradient(700px circle at 82% 16%, rgba(180, 93, 50, 0.08), transparent 70%);
-}
-
-.scroll-progress {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 500;
-  height: 3px;
-  pointer-events: none;
-  background: rgba(23, 48, 68, 0.05);
-}
-
-.scroll-progress-bar {
-  display: block;
-  width: 100%;
-  height: 100%;
-  transform: scaleX(0);
-  transform-origin: left center;
-  background: linear-gradient(90deg, var(--luxury-copper), var(--luxury-gold));
-  box-shadow: 0 0 18px rgba(180, 93, 50, 0.32);
-  will-change: transform;
-}
-
-.chapter-rail {
-  position: fixed;
-  top: 50%;
-  right: max(18px, calc((100vw - 1440px) / 2));
-  z-index: 260;
-  transform: translateY(-50%);
-}
-
-.chapter-rail ol {
-  display: grid;
-  gap: 9px;
-  list-style: none;
-}
-
-.chapter-rail button {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  width: 146px;
-  padding: 5px 0;
-  border: 0;
-  color: var(--text-muted);
-  background: transparent;
-  cursor: pointer;
-}
-
-.chapter-dot {
-  order: 2;
-  width: 7px;
-  height: 7px;
-  margin-left: 10px;
-  border: 1px solid rgba(23, 48, 68, 0.35);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.8);
-  transition: all 0.3s ease;
-}
-
-.chapter-label {
-  overflow: hidden;
-  max-width: 0;
-  opacity: 0;
-  color: var(--luxury-ink);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-align: right;
-  text-transform: uppercase;
-  white-space: nowrap;
-  transform: translateX(8px);
-  transition: max-width 0.35s ease, opacity 0.25s ease, transform 0.35s ease;
-}
-
-.chapter-rail button:hover .chapter-label,
-.chapter-rail button:focus-visible .chapter-label,
-.chapter-rail button.is-active .chapter-label {
-  max-width: 124px;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-.chapter-rail button.is-active .chapter-dot {
-  width: 10px;
-  height: 10px;
-  border-color: transparent;
-  background: var(--luxury-copper);
-  box-shadow: 0 0 0 5px rgba(180, 93, 50, 0.12);
 }
 
 .bottom-nav {
@@ -2091,26 +1912,6 @@ body:not(.project-detail-page) .hero-photo-wrapper::after {
   text-transform: uppercase;
 }
 
-body:not(.project-detail-page) .section.page-slide {
-  padding-top: 116px;
-  padding-bottom: 80px;
-}
-
-body:not(.project-detail-page) .section.page-slide::before {
-  inset: 40px max(28px, calc((100vw - 1320px) / 2));
-  border-color: rgba(23, 48, 68, 0.075);
-  border-radius: 36px;
-  background:
-    linear-gradient(135deg, rgba(255, 255, 255, 0.62), rgba(255, 249, 239, 0.38));
-  box-shadow: inset 0 1px rgba(255, 255, 255, 0.7);
-}
-
-body:not(.project-detail-page) .section.page-slide.is-slide-active::before {
-  box-shadow:
-    inset 0 1px rgba(255, 255, 255, 0.82),
-    0 36px 100px rgba(23, 48, 68, 0.055);
-}
-
 body:not(.project-detail-page) .section-title {
   margin-bottom: 48px;
   color: var(--luxury-ink);
@@ -2172,12 +1973,6 @@ body:not(.project-detail-page) .section[data-chapter] .section-title::before {
   50% { transform: scale(1.08); opacity: 1; }
 }
 
-@media (max-width: 1180px) {
-  .chapter-rail {
-    display: none;
-  }
-}
-
 @media (max-width: 900px) {
   .bottom-nav {
     top: 8px;
@@ -2199,10 +1994,6 @@ body:not(.project-detail-page) .section[data-chapter] .section-title::before {
     width: 100%;
   }
 
-  body:not(.project-detail-page) .section.page-slide {
-    padding-top: 104px;
-    padding-bottom: 66px;
-  }
 }
 
 @media (max-width: 600px) {
@@ -2436,26 +2227,6 @@ body:not(.project-detail-page) .section[data-chapter] .section-title::before {
     margin-bottom: 18px;
   }
 
-  .section-carousel-enabled {
-    scroll-snap-type: y proximity;
-    scroll-padding-top: 0;
-  }
-
-  body:not(.project-detail-page) .section.page-slide {
-    min-height: 100svh;
-    padding-top: 86px;
-    padding-bottom: 52px;
-  }
-
-  body:not(.project-detail-page) .section.page-slide::before {
-    inset: 12px 14px;
-    border-radius: 24px;
-  }
-
-  body:not(.project-detail-page) .page-slide:not(.is-slide-active) > .section-inner {
-    opacity: 0;
-    transform: translate3d(0, 28px, 0) scale(0.97);
-  }
 }
 
 @media (max-width: 480px) {
@@ -2549,20 +2320,10 @@ body:not(.project-detail-page) .section[data-chapter] .section-title::before {
     transition: none !important;
   }
 
-  .section-carousel-enabled {
-    scroll-snap-type: none;
-  }
 }
 
-/* Natural document flow: premium styling without carousel-like scrolling. */
-html,
-html.section-carousel-enabled {
+html {
   scroll-snap-type: none;
-}
-
-.scroll-progress,
-.chapter-rail {
-  display: none;
 }
 
 body:not(.project-detail-page) .section {
