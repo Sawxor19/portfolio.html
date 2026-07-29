@@ -9,17 +9,17 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #fffaf3;
-      --text: #3f2d26;
-      --text-secondary: #6f5144;
-      --text-muted: #92766a;
-      --accent: #a94f27;
-      --accent-dark: #74351f;
-      --accent-soft: #ffe6bf;
-      --accent-warm: #e3a64a;
-      --accent-amber: #c8782f;
-      --border: #ead9c3;
-      --shadow-lg: 0 24px 70px rgba(91, 50, 30, 0.17);
+      --bg: #f8efe2;
+      --ink: #402d26;
+      --text: #402d26;
+      --text-secondary: #705246;
+      --text-muted: #98796b;
+      --accent: #b75a32;
+      --accent-dark: #823b24;
+      --accent-soft: #f4d7ad;
+      --accent-warm: #d99b43;
+      --border: rgba(130, 59, 36, 0.14);
+      --shadow-lg: 0 32px 80px rgba(91, 50, 30, 0.2);
       --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       --font-display: "Playfair Display", Georgia, serif;
     }
@@ -45,35 +45,62 @@
       font-family: var(--font-body);
       color: var(--text);
       background:
-        linear-gradient(90deg, rgba(169, 79, 39, 0.04) 1px, transparent 1px),
-        linear-gradient(180deg, rgba(227, 166, 74, 0.04) 1px, transparent 1px),
-        linear-gradient(115deg, rgba(255, 253, 248, 0.97) 0 28%, rgba(255, 232, 190, 0.68) 28% 66%, rgba(255, 245, 218, 0.84) 66% 100%);
-      background-size: 92px 92px, 92px 92px, auto;
+        radial-gradient(520px circle at 88% 18%, rgba(217, 155, 67, 0.24), transparent 70%),
+        linear-gradient(90deg, rgba(130, 59, 36, 0.045) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(130, 59, 36, 0.045) 1px, transparent 1px),
+        var(--bg);
+      background-size: auto, 72px 72px, 72px 72px, auto;
     }
 
     .og-frame {
       position: relative;
       display: grid;
-      grid-template-columns: 1fr 380px;
+      grid-template-columns: 1fr 378px;
       align-items: center;
-      gap: 64px;
-      width: 1088px;
-      height: 518px;
-      padding: 34px 28px 34px 54px;
+      gap: 48px;
+      width: 1120px;
+      height: 550px;
+      overflow: hidden;
+      padding: 38px 36px 38px 52px;
+      border: 1px solid rgba(130, 59, 36, 0.14);
+      border-radius: 38px;
+      background:
+        radial-gradient(520px circle at 24% -10%, rgba(217, 155, 67, 0.18), transparent 66%),
+        linear-gradient(110deg, #fffaf3 0 66%, #f1d7aa 66% 100%);
+      box-shadow: 0 34px 90px rgba(91, 50, 30, 0.16);
+    }
+
+    .og-frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(130, 59, 36, 0.035) 1px, transparent 1px),
+        linear-gradient(180deg, rgba(130, 59, 36, 0.035) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: linear-gradient(90deg, black, transparent 68%);
+    }
+
+    .og-frame > * {
+      position: relative;
+      z-index: 1;
     }
 
     .brand-row {
       display: flex;
       align-items: center;
       gap: 14px;
-      margin-bottom: 34px;
+      margin-bottom: 28px;
     }
 
     .brand-mark {
       width: 52px;
       height: 52px;
-      border-radius: 14px;
-      box-shadow: 0 16px 34px rgba(24, 50, 71, 0.12);
+      padding: 4px;
+      border-radius: 15px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
     }
 
     .brand-copy {
@@ -82,7 +109,8 @@
     }
 
     .brand-name {
-      font-size: 18px;
+      color: var(--ink);
+      font-size: 17px;
       font-weight: 800;
       line-height: 1.1;
     }
@@ -95,22 +123,22 @@
 
     .label {
       display: block;
-      margin-bottom: 16px;
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      margin-bottom: 14px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.2em;
       line-height: 1;
       text-transform: uppercase;
     }
 
     .title {
-      max-width: 640px;
-      color: #142c3f;
-      font-size: 70px;
+      max-width: 620px;
+      color: var(--ink);
+      font-size: 62px;
       font-weight: 800;
-      letter-spacing: 0;
-      line-height: 0.98;
+      letter-spacing: -0.035em;
+      line-height: 0.96;
     }
 
     .title em {
@@ -121,84 +149,86 @@
     }
 
     .description {
-      max-width: 560px;
-      margin-top: 26px;
+      max-width: 570px;
+      margin-top: 20px;
       color: var(--text-secondary);
-      font-size: 24px;
-      line-height: 1.42;
+      font-size: 19px;
+      line-height: 1.45;
     }
 
     .note {
-      margin-top: 10px;
+      margin-top: 8px;
       color: var(--accent);
-      font-size: 21px;
+      font-size: 17px;
       font-weight: 700;
       line-height: 1.35;
     }
 
     .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, max-content);
+      gap: 8px;
+      max-width: 640px;
+      margin-top: 22px;
     }
 
     .tag {
       display: inline-flex;
       align-items: center;
-      min-height: 38px;
-      padding: 8px 16px;
-      border: 1px solid rgba(169, 79, 39, 0.16);
+      min-height: 32px;
+      padding: 7px 12px;
+      border: 1px solid rgba(183, 90, 50, 0.16);
       border-radius: 999px;
       color: var(--accent-dark);
-      background: rgba(255, 255, 255, 0.68);
-      font-size: 14px;
+      background: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
       font-weight: 700;
-      box-shadow: 0 8px 18px rgba(24, 50, 71, 0.06);
+      box-shadow: 0 8px 18px rgba(91, 50, 30, 0.055);
     }
 
     .media {
       position: relative;
       width: 380px;
-      min-height: 430px;
+      min-height: 470px;
     }
 
     .photo-wrap {
       position: absolute;
-      top: 24px;
-      right: 34px;
-      width: 314px;
-      height: 314px;
+      top: 2px;
+      right: 20px;
+      width: 318px;
+      height: 420px;
       overflow: hidden;
-      border: 8px solid rgba(255, 255, 255, 0.86);
-      border-radius: 24px;
+      border: 8px solid rgba(255, 250, 243, 0.9);
+      border-radius: 160px 160px 28px 28px;
       box-shadow: var(--shadow-lg);
-      transform: rotate(2deg);
+      transform: rotate(1.5deg);
     }
 
     .photo-wrap img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transform: scale(1.04);
+      object-position: center 36%;
+      transform: scale(1.03);
     }
 
     .badge {
       position: absolute;
       right: 0;
-      bottom: 60px;
-      width: 142px;
-      padding: 16px 18px;
-      border: 1px solid rgba(169, 79, 39, 0.18);
-      border-radius: 16px;
-      background: rgba(255, 255, 255, 0.9);
+      bottom: 12px;
+      width: 154px;
+      padding: 15px 18px;
+      border: 1px solid rgba(130, 59, 36, 0.12);
+      border-radius: 18px;
+      background: rgba(255, 250, 243, 0.94);
       box-shadow: var(--shadow-lg);
       text-align: center;
     }
 
     .badge-number {
       display: block;
-      color: var(--accent);
+      color: var(--accent-dark);
       font-size: 36px;
       font-weight: 800;
       line-height: 1;
@@ -207,7 +237,7 @@
     .badge-text {
       display: block;
       margin-top: 6px;
-      color: var(--text-secondary);
+      color: #6f5144;
       font-size: 13px;
       font-weight: 700;
       line-height: 1.28;
@@ -215,12 +245,12 @@
 
     .accent-line {
       position: absolute;
-      right: 56px;
-      bottom: 36px;
-      width: 220px;
-      height: 8px;
+      right: 278px;
+      bottom: 0;
+      width: 88px;
+      height: 5px;
       border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-amber));
+      background: linear-gradient(135deg, var(--accent), var(--accent-warm));
     }
   </style>
 </head>
@@ -241,11 +271,14 @@
       <p class="note">Foco em dados, automação e eficiência.</p>
 
       <div class="tags" aria-label="Tecnologias">
-        <span class="tag">Next.js</span>
-        <span class="tag">React</span>
+        <span class="tag">JavaScript</span>
         <span class="tag">TypeScript</span>
-        <span class="tag">Python</span>
-        <span class="tag">Supabase</span>
+        <span class="tag">React</span>
+        <span class="tag">Next.js</span>
+        <span class="tag">Node.js</span>
+        <span class="tag">Express</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">SQLite</span>
       </div>
     </section>
 

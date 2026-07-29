@@ -171,6 +171,7 @@
       ".hero-image",
       ".section-title",
       ".about-text",
+      ".timeline-content",
       ".highlight-card",
       ".academic-matrix-head",
       ".academic-card",
@@ -300,6 +301,130 @@
     window.addEventListener("scroll", requestActiveSlideUpdate, { passive: true });
     window.addEventListener("resize", requestActiveSlideUpdate);
     setActiveSlide();
+  }
+
+  function initLuxuryExperience() {
+    if (isProjectDetailPage) return;
+
+    const sections = Array.from(document.querySelectorAll(".hero, main > .section"));
+    if (!sections.length) return;
+
+    const isEnglish = document.documentElement.lang.toLowerCase().startsWith("en");
+    const chapterNames = isEnglish
+      ? {
+          inicio: "Introduction",
+          sobre: "Journey",
+          formacao: "Education",
+          projetos: "Projects",
+          skills: "Expertise",
+          contato: "Contact",
+        }
+      : {
+          inicio: "Apresentação",
+          sobre: "Trajetória",
+          formacao: "Formação",
+          projetos: "Projetos",
+          skills: "Competências",
+          contato: "Contato",
+        };
+
+    const progress = document.createElement("div");
+    progress.className = "scroll-progress";
+    progress.setAttribute("aria-hidden", "true");
+    progress.innerHTML = '<span class="scroll-progress-bar"></span>';
+    document.body.prepend(progress);
+
+    const rail = document.createElement("nav");
+    rail.className = "chapter-rail";
+    rail.setAttribute("aria-label", isEnglish ? "Portfolio chapters" : "Capítulos do portfólio");
+
+    const railList = document.createElement("ol");
+    sections.forEach((section, index) => {
+      const name = chapterNames[section.id] || section.id;
+      const number = String(index + 1).padStart(2, "0");
+      section.dataset.chapter = number;
+      section.dataset.chapterName = name;
+      const sectionTitle = section.querySelector(".section-title");
+      if (sectionTitle) {
+        sectionTitle.dataset.chapter = `${number} · ${name}`;
+      }
+
+      const item = document.createElement("li");
+      const button = document.createElement("button");
+      button.type = "button";
+      button.dataset.target = section.id;
+      button.setAttribute("aria-label", isEnglish ? `Go to ${name}` : `Ir para ${name}`);
+      button.innerHTML = `<span class="chapter-dot"></span><span class="chapter-label">${number} · ${name}</span>`;
+      button.addEventListener("click", () => {
+        section.scrollIntoView({
+          behavior: prefersReducedMotion() ? "auto" : "smooth",
+          block: "start",
+        });
+      });
+      item.appendChild(button);
+      railList.appendChild(item);
+    });
+    rail.appendChild(railList);
+    document.body.appendChild(rail);
+
+    const progressBar = progress.querySelector(".scroll-progress-bar");
+    const railButtons = Array.from(rail.querySelectorAll("button"));
+    let ticking = false;
+
+    function updateLuxuryUI() {
+      const scrollable = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+      const ratio = Math.min(Math.max(window.scrollY / scrollable, 0), 1);
+      progressBar.style.transform = `scaleX(${ratio})`;
+
+      const viewportFocus = window.innerHeight * 0.45;
+      let activeSection = sections[0];
+      let smallestDistance = Number.POSITIVE_INFINITY;
+
+      sections.forEach((section) => {
+        const rect = section.getBoundingClientRect();
+        const containsFocus = rect.top <= viewportFocus && rect.bottom >= viewportFocus;
+        const distance = containsFocus ? 0 : Math.min(
+          Math.abs(rect.top - viewportFocus),
+          Math.abs(rect.bottom - viewportFocus)
+        );
+
+        if (distance < smallestDistance) {
+          smallestDistance = distance;
+          activeSection = section;
+        }
+      });
+
+      railButtons.forEach((button) => {
+        const active = button.dataset.target === activeSection.id;
+        button.classList.toggle("is-active", active);
+        if (active) {
+          button.setAttribute("aria-current", "true");
+        } else {
+          button.removeAttribute("aria-current");
+        }
+      });
+
+      document.body.dataset.activeChapter = activeSection.dataset.chapter || "01";
+      ticking = false;
+    }
+
+    function requestLuxuryUpdate() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(updateLuxuryUI);
+    }
+
+    window.addEventListener("scroll", requestLuxuryUpdate, { passive: true });
+    window.addEventListener("resize", requestLuxuryUpdate);
+
+    if (!prefersReducedMotion() && window.matchMedia("(pointer: fine)").matches) {
+      window.addEventListener("pointermove", (event) => {
+        document.documentElement.style.setProperty("--pointer-x", `${event.clientX}px`);
+        document.documentElement.style.setProperty("--pointer-y", `${event.clientY}px`);
+      }, { passive: true });
+    }
+
+    updateLuxuryUI();
   }
 
   function initProjectGallery() {
@@ -852,9 +977,7 @@
 
   initProjectNavbar();
   initSectionNavigation();
-  initSectionCarousel();
   initRevealAnimations();
-  initScrollMotion();
   initProjectGallery();
   initProjectShotCarousel();
   initProjectImageLightbox();
