@@ -1812,7 +1812,8 @@ body:not(.project-detail-page) .hero {
 }
 
 .hero-availability {
-  display: inline-flex;
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 9px;
   margin-bottom: 18px;
